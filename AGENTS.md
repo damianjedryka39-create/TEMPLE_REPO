@@ -51,6 +51,27 @@ CONF: 0.xx
 - NIE ładuj skilli przy rehydrate
 - Jeden skill per operacja (chyba że kontekst wymaga więcej)
 
+### Mapa triggerów
+
+| Skill | Kiedy uruchomić |
+|-------|----------------|
+| **Brain_Storming.md** | Nowy moduł, nowa funkcja, pivot, CONF < 0.70, wiele opcji do eksploracji, kreatywna sesja |
+| **Check_Me.md** | Niejasny cel, nowy temat, CONF < 0.70, brak danych, potrzeba wywiadu z userem |
+| **System_Architect.md** | Nowy moduł, decyzja build-vs-buy, refaktor, projektowanie API, analiza techniczna |
+| **Task_Codex_Gemini.md** | Delegacja zadania do Codex lub Gemini (ZAWSZE przez ten template) |
+| **Preflight.md** | Przed deploy, przed review foundera, przed oznaczeniem DONE |
+| **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
+| **Claude.md** | Załadowany stale — meta-zasada myślenia agenta |
+
+### Pipeline (kolejność skilli)
+
+```
+Check_Me (wywiad) → Brain_Storming (pomysły) → System_Architect (architektura)
+→ Task_Codex_Gemini (delegacja × N) → Preflight (gate) → DEPLOY/DONE
+```
+
+Nie każde zadanie wymaga pełnego pipeline'u. Wejdź tam gdzie kontekst pasuje.
+
 ---
 
 ## CLI Tools
