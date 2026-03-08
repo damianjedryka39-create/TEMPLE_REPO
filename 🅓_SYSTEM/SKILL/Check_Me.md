@@ -8,6 +8,16 @@ cross_link: Brain_Storming.md
 
 # CHECK ME — Wywiad z Userem
 
+## PRE-CHECK
+
+1. Czy naprawdę NIE WIEM czego user chce? → jeśli wiem → **SKIP, idź do Brain_Storming lub System_Architect**
+2. Czy odpowiedź jest już w kontekście rozmowy? → jeśli TAK → **SKIP, nie pytaj o to co wiesz**
+3. Czy to prosty task z jasnym AC? → jeśli TAK → **SKIP, wykonaj bez wywiadu**
+
+**Ten skill odpala się TYLKO gdy agent ma za mało danych żeby działać.**
+
+---
+
 ## CEL
 
 Przeprowadz szczegolowy wywiad z userem uzywajac AskUserQuestion. Pytaj o wszystko co wazne dla problemu i potencjalnie wazne dla calego systemu. Pytaj o cele, wartosci, ograniczenia, preferencje, zasoby, ryzyka. Pytaj o rozne aspekty problemu lub celu. Uwzgledniaj obawy, kompromisy, zastrzezenia.

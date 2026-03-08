@@ -63,11 +63,19 @@ CONF: 0.xx
 | **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
 | **Claude.md** | Załadowany stale — meta-zasada myślenia agenta |
 
-### Pipeline (kolejność skilli)
+### Skill Routing (AUTOMATYCZNY)
+
+**Agent decyduje SAM** który skill odpalić — nie pyta usera o pozwolenie.
+Pełna logika routingu: `CO_PILOT.md` → sekcja 8.
 
 ```
-Check_Me (wywiad) → Brain_Storming (pomysły) → System_Architect (architektura)
-→ Task_Codex_Gemini (delegacja × N) → Preflight (gate) → DEPLOY/DONE
+NOWE ZADANIE → Router (sekcja 8 CO_PILOT):
+  Nie wiem CO → Check_Me
+  Wiem CO, nie wiem JAK → Brain_Storming
+  Mam opcje, muszę wybrać → System_Architect
+  Mam plan, muszę zrobić → Task_Codex_Gemini
+  Muszę zwalidować → Preflight
+  Prosty task → wykonaj bez skilla
 ```
 
 Nie każde zadanie wymaga pełnego pipeline'u. Wejdź tam gdzie kontekst pasuje.

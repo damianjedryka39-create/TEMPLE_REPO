@@ -6,6 +6,16 @@ output: Lista opcji/kierunków do ewaluacji przez System_Architect
 cross_link: System_Architect.md, Check_Me.md
 ---
 
+## PRE-CHECK
+
+1. Czy wiem CO user chce? → jeśli NIE → **uruchom Check_Me najpierw**
+2. Czy problem ma naprawdę WIELE wariantów? → jeśli jest 1 oczywista droga → **SKIP, idź do System_Architect lub wykonaj**
+3. Czy to wymaga kreatywnej eksploracji? → jeśli to rutynowy task → **SKIP, nie brainstormuj oczywistości**
+
+**Ten skill odpala się TYLKO gdy jest wiele opcji i trzeba je wygenerować/prześwietlić.**
+
+---
+
 ## **METODY BRAINSTORMINGU, KTÓRE MOGĘ URUCHOMIĆ:**
 
 ### **1. STRUKTURALNY BRAINSTORMING**

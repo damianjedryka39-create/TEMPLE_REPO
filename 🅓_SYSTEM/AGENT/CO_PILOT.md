@@ -188,7 +188,67 @@ CONF: 0.XX
 
 ---
 
-## 8. STATE FORMAT (KANONICZNY)
+## 8. SKILL ROUTING (AUTOMATYCZNY)
+
+**Agent ZAWSZE przechodzi ten router przed odpaleniem jakiegokolwiek skilla.**
+**Agent decyduje SAM — nie pyta usera o pozwolenie, odpala skill i działa.**
+
+### Decision Tree
+
+```
+NOWE ZADANIE / NOWY KONTEKST
+  │
+  ├─ 1. Czy wiem CO user chce osiągnąć?
+  │     └─ NIE → CHECK_ME (wywiad z userem)
+  │              Po zakończeniu → wróć do routera
+  │
+  ├─ 2. Czy problem wymaga kreatywnej eksploracji / jest wiele opcji?
+  │     └─ TAK → BRAIN_STORMING (generuj warianty)
+  │              Po zakończeniu → wróć do routera
+  │
+  ├─ 3. Czy muszę zaprojektować architekturę / wybrać opcję / podjąć decyzję techniczną?
+  │     └─ TAK → SYSTEM_ARCHITECT (3 opcje → trade-off → verdict)
+  │              Po zakończeniu → wróć do routera
+  │
+  ├─ 4. Czy mam blueprint / jasne AC i muszę zbudować?
+  │     └─ TAK → TASK_CODEX_GEMINI (delegacja do wykonawcy)
+  │
+  ├─ 5. Czy jest output gotowy do deploy / review?
+  │     └─ TAK → PREFLIGHT (gate check)
+  │
+  └─ 6. Prosty task, jasny cel, zero ambiguity?
+        └─ WYKONAJ BEZ SKILLA (szybka egzekucja)
+```
+
+### Zasady routingu
+
+1. **Sprawdzaj SEKWENCYJNIE** — od góry, pierwszy match = odpal
+2. **Po zakończeniu skilla → wróć do routera** — skill może odblokować następny
+3. **NIE odpalaj dwóch skilli naraz** — jeden skill, jeden output, potem decyzja
+4. **NIE pytaj usera "czy odpalić skill?"** — decyduj sam na podstawie drzewa
+5. **Prosty task = zero skilli** — nie uruchamiaj pipeline'u dla `git commit` czy drobnej edycji
+
+### Sygnały decyzyjne
+
+| Sygnał | Znaczenie | Skill |
+|--------|-----------|-------|
+| User mówi ogólnikowo, brak AC | Nie wiem CO | Check_Me |
+| "Zróbmy X" ale X ma wiele wariantów | Wiem CO, nie wiem JAK | Brain_Storming |
+| Nowy moduł, API, refaktor, build-vs-buy | Mam opcje, muszę WYBRAĆ | System_Architect |
+| Jasne AC, gotowy spec, "zbuduj to" | Mam plan, muszę ZROBIĆ | Task_Codex_Gemini |
+| "Gotowe, sprawdź" / przed deploy | Muszę ZWALIDOWAĆ | Preflight |
+
+### Pełny pipeline (rzadko — tylko duże rzeczy)
+
+```
+CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY
+```
+
+Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kontekst pasuje.
+
+---
+
+## 9. STATE FORMAT (KANONICZNY)
 
 **Zawsze zawiera:**
 - Timestamp UTC
@@ -204,7 +264,7 @@ CONF: 0.XX
 
 ---
 
-## 9. ANTI-LOOP + ESCALATION
+## 10. ANTI-LOOP + ESCALATION
 
 **Po 3 iteracjach bez postępu → STOP + ROOT_CAUSE_TABLE:**
 
@@ -218,7 +278,7 @@ CONF: 0.XX
 
 ---
 
-## 10. POLITYKA COMMIT + GUARDRAIL
+## 11. POLITYKA COMMIT + GUARDRAIL
 
 **COMMIT kiedy:**
 - Zmiana kodu/config
@@ -236,7 +296,7 @@ CONF: 0.XX
 
 ---
 
-## 11. AGENT TEAMS PROTOCOL
+## 12. AGENT TEAMS PROTOCOL
 
 **TRIGGER:** Złożony problem, CONF < 0.70, nowy milestone, pivot.
 
@@ -252,7 +312,7 @@ CONF: 0.XX
 
 ---
 
-## 12. CONTEXT MANAGEMENT + BUDGET TOKENÓW
+## 13. CONTEXT MANAGEMENT + BUDGET TOKENÓW
 
 | Operacja | Koszt tokenów |
 |----------|--------------|
