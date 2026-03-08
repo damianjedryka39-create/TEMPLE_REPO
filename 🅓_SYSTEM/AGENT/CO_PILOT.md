@@ -15,6 +15,78 @@
 
 **Zasada:** Wybieraj model do zadania, nie zadanie do modelu.
 
+### KIEDY CODEX (`codex exec --full-auto "..."`)
+
+**TAK — deleguj do Codex:**
+- Implementacja konkretnego ticketu z jasnym AC (Acceptance Criteria)
+- Generowanie kodu z gotowej specyfikacji / blueprint
+- Refaktor mechaniczny (rename, extract, reorganize)
+- Naprawianie bugów z jasnym reproduce scenario
+- Pisanie testów do istniejącego kodu
+- Generowanie boilerplate / scaffolding
+
+**NIE — nie deleguj do Codex:**
+- Decyzje architektoniczne (to Claude)
+- Zadania wymagające kontekstu wielu plików naraz (Codex ma wąski kontekst)
+- Cokolwiek co wymaga pytania usera (Codex nie pyta — robi)
+- Praca z plikami > 500 linii bez jasnego wskazania gdzie zmienić
+
+**Format delegacji:** Zawsze przez `Task_Codex_Gemini.md` (TASK CONTRACT). Bez contractu = słaby output.
+
+```bash
+codex exec --full-auto "
+CEL: [1 zdanie]
+INPUT: [ścieżki plików]
+OUTPUT: [co ma powstać, gdzie zapisać]
+AC: [3-5 punktów TAK/NIE]
+ZAKAZ: [czego NIE robić]
+"
+```
+
+### KIEDY GEMINI (`gemini -p "..." -y`)
+
+**TAK — deleguj do Gemini:**
+- Analiza dużych plików (>300 linii) — sumaryzacja, ekstrakcja
+- Praca z obrazami (analiza referencji, porównanie wizualne, multimodal)
+- Generowanie UI/landing page z referencji wizualnej
+- Pisanie długich dokumentów (OPIS, ROADMAP, raporty)
+- Przetwarzanie wielu plików naraz (duży kontekst)
+- Design review — porównanie output z referencją
+
+**NIE — nie deleguj do Gemini:**
+- Decyzje architektoniczne wymagające reasoning (to Claude)
+- Praca z kodem wymagająca precyzji (Gemini bywa niedokładny w detalach)
+- Cokolwiek co wymaga zmiany stanu systemu (commit, deploy, config)
+
+```bash
+gemini -p "
+ZADANIE: [co zrobić]
+INPUT: [ścieżki plików / obrazów]
+OUTPUT: [format, gdzie zapisać]
+KONTEKST: [2-3 zdania sytuacji]
+" -y
+```
+
+### WORKFLOW: CLAUDE → CODEX/GEMINI → CLAUDE
+
+```
+1. CLAUDE: Specyfikacja + TASK CONTRACT
+   ↓
+2. CODEX/GEMINI: Implementacja (full-auto)
+   ↓
+3. CLAUDE: Review output → PREFLIGHT → DEPLOY/DONE
+```
+
+**Claude ZAWSZE jest gatekeeperem.** Codex i Gemini to wykonawcy — nie podejmują decyzji, nie zmieniają scope'u, nie commitują bez review.
+
+### ZASADY DELEGACJI
+
+1. **Jeden task = jeden contract** — nie łącz wielu zadań w jedną delegację
+2. **AC musi być sprawdzalne** — każdy punkt TAK/NIE, zero "powinno wyglądać dobrze"
+3. **ZAKAZ jest obowiązkowy** — bez niego agent rozszerzy scope
+4. **Review ZAWSZE** — Claude sprawdza output przed DONE/commit
+5. **Fallback** — jeśli output słaby po 2 próbach → Claude robi sam
+
 ---
 
 ## 2. ROLA — AVATAR: {{NAZWA_AVATARA}}
