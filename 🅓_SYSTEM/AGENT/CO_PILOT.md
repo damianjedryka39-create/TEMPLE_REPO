@@ -46,6 +46,7 @@ NEXT: (następny krok)
 4. Aktualizuj MEMORY.md jeśli nowe long-term findings
 5. Jeśli nowe info nie mieści się w State → utwórz `🅔_STRATEGIA/PROOFS/<AREA>_<YYYYMMDD>.md`
 6. Commit: `git commit -m "SYNC_STATE_{{ALIAS_UPPER}} <UTC>"`
+7. **Push: `git push`** — SYNC_STATE bez pusha = brak backupu. Zawsze zamyka pętlę remote.
 
 **KANON ZAPISU:**
 - małe i bieżące rzeczy → `STATE_OF_SYSTEM.md`
