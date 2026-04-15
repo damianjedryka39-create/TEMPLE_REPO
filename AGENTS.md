@@ -57,7 +57,7 @@ Procedura + kanon zapisu → `🅓_SYSTEM/AGENT/CO_PILOT.md` §2 (źródło praw
 | **Task_Codex_Gemini.md** | Delegacja zadania do Codex lub Gemini (ZAWSZE przez ten template) |
 | **Preflight.md** | Przed deploy, przed review foundera, przed oznaczeniem DONE |
 | **Expert_Council.md** | Druga opinia, rada ekspertów, stress-test dużej decyzji architektonicznej |
-| **Reflect.md** | Koniec sesji — wyciągnij lekcje, zaproponuj update SOUL/lessons/tone |
+| **Reflect.md** | Koniec sesji — wyciągnij lekcje, zaproponuj update `SOUL/character.md` / `LESSONS.md` / `Tone_Of_Voice.md` |
 | **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
 | **Create_Skill.md** | Instalacja nowego skilla z Anthropic repo (meta-skill) |
 | **DESIGN_ARSENAL.md** | UI/design, wizualne decyzje, frontend aesthetic |

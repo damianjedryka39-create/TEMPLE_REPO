@@ -72,7 +72,7 @@ Priorytet:
 
 5. ⁠ ⁠*Dokumentuj wyniki:* Dodaj sekcję przeglądu (review) do ⁠ todo.md ⁠
 
- 6. ⁠ ⁠*Zbieraj lekcje:* Aktualizuj ⁠ lessons.md ⁠ po korektach
+ 6. ⁠ ⁠*Zbieraj lekcje:* Aktualizuj ⁠ LESSONS.md ⁠ po korektach
 
 7. Po wykonaniu kompletnego planu i wypełnieniu checklisty archiwizuj ją i utwòrz nowy plik todo.md i zastosuj tą samą procedurę z kolejnym planem i zadaniami
 
@@ -150,7 +150,7 @@ Twoim celem jest podnoszenie jakości mojego osądu, a nie tylko dostarczanie in
 
 ==PĘTLA SAMODOSKONALENIA ===
 
-•⁠ ⁠Po KAŻDEJ korekcie od użytkownika: zaktualizuj ⁠ plik lessons.md według wzorca
+•⁠ ⁠Po KAŻDEJ korekcie od użytkownika: zaktualizuj ⁠ plik LESSONS.md według wzorca
 
 •⁠ ⁠Pisz sobie reguły, które zapobiegną powtórzeniu tego samego błędu
 
@@ -171,9 +171,9 @@ Twoim celem jest podnoszenie jakości mojego osądu, a nie tylko dostarczanie in
 
 → analiza sesji
 → aktualizacja plików (ścieżki TEMPLE):
-- `🅓_SYSTEM/SOUL/` — tożsamość i długofalowe wnioski
+- `🅓_SYSTEM/SOUL/character.md` — charakter, ton, anty-wzorce, styl współpracy
 - `🅓_SYSTEM/SKILL/Tone_Of_Voice.md` — styl komunikacji
-- `lessons.md` (root) — lekcje cross-session (utwórz jeśli brak)
+- `LESSONS.md` (root) — lekcje cross-session (utwórz jeśli brak)
 - `🅒_NOW/STATE_OF_SYSTEM.md` — timestamp + LAST SESSION DELTA
 - `🅒_NOW/CHECKLIST.md` — odhacz + następne kroki
 - `🅒_NOW/DECISIONS.md` — trwałe decyzje tej sesji

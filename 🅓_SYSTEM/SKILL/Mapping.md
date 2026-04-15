@@ -108,7 +108,7 @@
 | Nowy cel | "chcemy osiągnąć X" | ADD |
 | Zmiana priorytetu | "teraz skupiamy się na X" | UPDATE |
 
-## soul.md
+## character.md
 
 ### CHARAKTER
 | Sygnał | Przykład | Typ |
@@ -185,22 +185,22 @@ User: "tym razem bez emoji"
 ```
 → Jednorazowe, nie powtórzone → SKIP
 
-### Przykład 6: Korekta zachowania AI (soul.md)
+### Przykład 6: Korekta zachowania AI (character.md)
 ```
 User: "za bardzo yes-man jesteś, challenguj mnie"
 ```
-→ **soul.md → JAK PRACUJĘ Z TOBĄ** UPDATE: wzmocnić sekcję o callout'ach
+→ **character.md → JAK PRACUJĘ Z TOBĄ** UPDATE: wzmocnić sekcję o callout'ach
 
-### Przykład 7: Nowy anty-wzorzec AI (soul.md)
+### Przykład 7: Nowy anty-wzorzec AI (character.md)
 ```
 User: "nie pisz 'jasne!' na początku"
 ```
-→ **soul.md → JAK KOMUNIKUJĘ → czego NIGDY nie robię** ADD: "Nie otwieram z 'Jasne!'"
+→ **character.md → JAK KOMUNIKUJĘ → czego NIGDY nie robię** ADD: "Nie otwieram z 'Jasne!'"
 
-### Przykład 8: Korekta autonomii AI (soul.md)
+### Przykład 8: Korekta autonomii AI (character.md)
 ```
 User: "nie pytaj, po prostu zrób"
 User: [kolejna sesja] "rób, nie pytaj"
 ```
-→ **soul.md → JAK ROZWIĄZUJĘ PROBLEMY** UPDATE: zwiększyć autonomię w podejmowaniu decyzji
+→ **character.md → JAK ROZWIĄZUJĘ PROBLEMY** UPDATE: zwiększyć autonomię w podejmowaniu decyzji
 

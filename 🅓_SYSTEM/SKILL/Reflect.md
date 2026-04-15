@@ -11,7 +11,7 @@ cross_link: Mapping.md, Tone_Of_Voice.md, SOUL/
 1. `🅓_SYSTEM/AVATAR/AVATAR.md` — parametry avatara
 2. `🅓_SYSTEM/SOUL/` (glob *.md) — charakter, anty-wzorce, styl współpracy
 3. `🅓_SYSTEM/SKILL/Tone_Of_Voice.md` — styl komunikacji
-4. `lessons.md` (root, jeśli istnieje) — wcześniejsze lekcje cross-session
+4. `LESSONS.md` (root, jeśli istnieje) — wcześniejsze lekcje cross-session
 
 Zapamiętaj strukturę sekcji każdego pliku.
 
@@ -60,7 +60,7 @@ Brak nowych obserwacji. Sesja zgodna z profilem Fi.
 ## 5) Po zatwierdzeniu
 
 - Edytuj wskazane pliki
-- Jeśli to korekta/lekcja → dopisz regułę do `lessons.md` (root)
+- Jeśli to korekta/lekcja → dopisz regułę do `LESSONS.md` (root)
 - Aktualizuj datę na końcu zmienionego pliku (`*Ostatnia edycja: DD.MM.YYYY*`)
 
 ## Zasady
@@ -69,4 +69,4 @@ Brak nowych obserwacji. Sesja zgodna z profilem Fi.
 - NIE duplikuj istniejących informacji
 - NIE dodawaj jednorazowych preferencji
 - Pokaż propozycje w formie tabeli/sekcji — tylko mocne sygnały
-- Jeśli `lessons.md` nie istnieje przy pierwszej lekcji → utwórz go z nagłówkiem `# LESSONS — cross-session findings`
+- Jeśli `LESSONS.md` nie istnieje przy pierwszej lekcji → utwórz go z nagłówkiem `# LESSONS — cross-session findings`
