@@ -1,13 +1,7 @@
 # AGENTS — {{NAZWA_PROJEKTU}}
 
-> Instrukcje operacyjne dla agentów AI pracujących w tym projekcie.
-
-
-## Operating Core 
-- W każdej iteracji wybieraj działanie, które maksymalnie zwiększy 
-użyteczną informację, zdolność decyzji lub potencjał następnego kroku.
-Generuj hipotezy przed konkluzjami. Proponuj kierunki których user jeszcze nie widzi.
-Ucz się usera — jak myśli, co go napędza, kiedy jest w flow.
+> Mapa operacyjna projektu. **CORE (tożsamość + tryb myślenia) → `MIND.md`.**
+> Operating Core, priorytety poznawcze i zasady pracy — patrz `MIND.md`.
 
 ---
 
@@ -15,29 +9,30 @@ Ucz się usera — jak myśli, co go napędza, kiedy jest w flow.
 
 ---
 
-## REHYDRATE — 4 pliki (w tej kolejności)
+## REHYDRATE — 7 pozycji (w tej kolejności)
 
-1. `🅓_SYSTEM/AVATAR/AVATAR.md` — KIM jestem (avatar)
-2. `🅓_SYSTEM/AGENT/CO_PILOT.md` — JAK pracuję (konstytucja operacyjna)
-3. `🅒_NOW/STATE_OF_SYSTEM.md` — STAN systemu (top-10 facts, blockers)
-4. `🅒_NOW/CHECKLIST.md` — CO ROBIMY (single source of truth)
+1. **`MIND.md`** — **CORE: tożsamość Muaddib + tryb poznawczy (MUSI być #1)**
+2. `🅓_SYSTEM/AVATAR/AVATAR.md` — parametry avatara projektu (imię/rola)
+3. `🅓_SYSTEM/AGENT/CO_PILOT.md` — konstytucja operacyjna (sync §2, router §4)
+4. `🅒_NOW/STATE_OF_SYSTEM.md` — STAN systemu (top-10 facts, blockers)
+5. `🅒_NOW/CHECKLIST.md` — CO ROBIMY (single source of truth)
+6. `🅒_NOW/DECISIONS.md` — trwałe decyzje projektu
+7. `🅔_STRATEGIA/PROOFS/` — duże sesyjne dowody i proofy per obszar
 
 **Po załadowaniu odpowiedz:**
 ```
 REHYDRATE: DONE
-LOADED: Avatar + Constitution + State + Checklist
-AVATAR: {{NAZWA_AVATARA}} ACTIVE
+CORE: Muaddib ACTIVE (MIND loaded)
+LOADED: Avatar + Constitution + State + Checklist + Decisions + Proofs
 CURRENT GOAL: <z CHECKLIST → NEXT>
-CONF: 0.xx
+CONF: 0.XX | STUCK: nie | ASSUMPTIONS: <lista lub brak>
 ```
 
 ---
 
-## SYNC_STATE (wg sekcji 6 CO_PILOT.md)
+## SYNC_STATE
 
-1. Aktualizuj `🅒_NOW/STATE_OF_SYSTEM.md` — timestamp + LAST SESSION DELTA
-2. Aktualizuj MEMORY.md jeśli nowe long-term findings
-3. Commit: `git commit -m "SYNC_STATE_{{ALIAS_UPPER}} <UTC>"`
+Procedura + kanon zapisu → `🅓_SYSTEM/AGENT/CO_PILOT.md` §2 (źródło prawdy).
 
 ---
 
@@ -58,27 +53,25 @@ CONF: 0.xx
 | **Brain_Storming.md** | Nowy moduł, nowa funkcja, pivot, CONF < 0.70, wiele opcji do eksploracji, kreatywna sesja |
 | **Check_Me.md** | Niejasny cel, nowy temat, CONF < 0.70, brak danych, potrzeba wywiadu z userem |
 | **System_Architect.md** | Nowy moduł, decyzja build-vs-buy, refaktor, projektowanie API, analiza techniczna |
+| **Grill_Me.md** | Przed implementacją >50 linii, nieodwracalna zmiana, CONF < 0.85, sprzeczność w planie |
 | **Task_Codex_Gemini.md** | Delegacja zadania do Codex lub Gemini (ZAWSZE przez ten template) |
 | **Preflight.md** | Przed deploy, przed review foundera, przed oznaczeniem DONE |
+| **Expert_Council.md** | Druga opinia, rada ekspertów, stress-test dużej decyzji architektonicznej |
+| **Reflect.md** | Koniec sesji — wyciągnij lekcje, zaproponuj update SOUL/lessons/tone |
 | **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
+| **Create_Skill.md** | Instalacja nowego skilla z Anthropic repo (meta-skill) |
+| **DESIGN_ARSENAL.md** | UI/design, wizualne decyzje, frontend aesthetic |
+| **Mapping.md** | Używany przez Reflect — mapa sygnał→plik→sekcja (nie odpalać samodzielnie) |
 | **Claude.md** | Załadowany stale — meta-zasada myślenia agenta |
+
+### Sunset clause
+
+Skill nieużyty **> 60 dni** → kandydat do review przy następnym SYNC_STATE.
+Decyzja: żywy / uśpić do `🅖_ARCHIVE/SKILL/` / usunąć. Zapobiega muzealizacji.
 
 ### Skill Routing (AUTOMATYCZNY)
 
-**Agent decyduje SAM** który skill odpalić — nie pyta usera o pozwolenie.
-Pełna logika routingu: `CO_PILOT.md` → sekcja 8.
-
-```
-NOWE ZADANIE → Router (sekcja 8 CO_PILOT):
-  Nie wiem CO → Check_Me
-  Wiem CO, nie wiem JAK → Brain_Storming
-  Mam opcje, muszę wybrać → System_Architect
-  Mam plan, muszę zrobić → Task_Codex_Gemini
-  Muszę zwalidować → Preflight
-  Prosty task → wykonaj bez skilla
-```
-
-Nie każde zadanie wymaga pełnego pipeline'u. Wejdź tam gdzie kontekst pasuje.
+Agent decyduje SAM — pełna logika routingu w `CO_PILOT.md` §4 (źródło prawdy).
 
 ---
 

@@ -4,15 +4,23 @@
 
 ---
 
+## Opis 
+
+Stwórz nowy projekt [NAZWA] w katalogu [ŚCIEŻKA] na podstawie szablonu z /root/GOFANS-NEOVERSE/TEMPLE_REPO. Skopiuj całą strukturę, zamień wszystkie {{placeholdery}} na dane projektu. Projekt dotyczy: [2-3 zdania co to jest].
+Zachowaj wszystkie skile takie jakie są. Skili nie zmieniaj. Poprostu je tylko skopiuj z Temple_Repo i umiesc w nowym REPO. 
+
+
 ## Kolejność czytania dla agenta
 
-| Krok | Plik | Cel | Czas |
-|------|------|-----|------|
-| 1 | **INDEX.md** (ten plik) | Struktura repo | 60 sek |
-| 2 | **🅒_NOW/CHECKLIST.md** | NEXT ACTION | 30 sek |
-| 3 | **🅐_OPIS/OPIS_PROJEKTU.md** | Kontekst projektu (jeśli potrzebny) | 2 min |
-| 4 | **🅕_PRODUKT/** | Kod produkcyjny (jeśli deployment) | on-demand |
-| 5 | **CONSTITUTION.md** | Wartości (jeśli wątpliwość) | 1 min |
+Agent po `rehydrate` ładuje 7 plików wg `AGENTS.md` (MIND.md jako #1).
+Pliki pomocnicze do szybkiego zorientowania się w repo:
+
+| Plik | Cel | Kiedy |
+|------|-----|-------|
+| **INDEX.md** (ten plik) | Struktura repo | Pierwsze wejście człowieka |
+| **🅐_OPIS/OPIS_PROJEKTU.md** | Kontekst projektu | On-demand |
+| **🅕_PRODUKT/** | Kod produkcyjny | Zadania deweloperskie |
+| **CONSTITUTION.md** | Wartości niezmienne | Wątpliwość etyczna |
 
 ---
 
@@ -58,19 +66,7 @@
 
 **Komenda:** `rehydrate {{ALIAS_PROJEKTU}}`
 
-**Kolejność ładowania (4 pliki):**
-1. `🅓_SYSTEM/AVATAR/AVATAR.md` — KIM jestem (avatar)
-2. `🅓_SYSTEM/AGENT/CO_PILOT.md` — JAK pracuję (konstytucja operacyjna)
-3. `🅒_NOW/STATE_OF_SYSTEM.md` — STAN systemu (top-10 facts, blockers)
-4. `🅒_NOW/CHECKLIST.md` — CO ROBIMY (single source of truth)
-
-**Format odpowiedzi po rehydrate:**
-```
-REHYDRATE: DONE
-LOADED: Avatar + Constitution + State + Checklist
-AVATAR: {{NAZWA_AVATARA}} ACTIVE
-CURRENT GOAL: <z CHECKLIST → NEXT>
-CONF: 0.xx
-```
+**Źródło prawdy:** `AGENTS.md` → sekcja REHYDRATE (7 pozycji, MIND.md jako #1).
+Ten plik NIE duplikuje listy — zapobiega split-brain.
 
 **Następnie:** NATYCHMIAST NEXT ACTION z checklisty.

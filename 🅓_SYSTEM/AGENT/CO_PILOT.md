@@ -1,111 +1,11 @@
 # CO_PILOT — {{NAZWA_PROJEKTU}}
 
-> Konstytucja operacyjna agenta. Ten plik definiuje JAK agent pracuje w tym projekcie.
-> Wersja: 1.0 | Min. długość: >= 180 linii (guardrail)
+> Konstytucja operacyjna: **JAK agent pracuje**.
+> Tożsamość + tryb myślenia → `MIND.md` (CORE). Avatar → `AVATAR.md`. Delegacja Codex/Gemini → skill `Task_Codex_Gemini.md`.
 
 ---
 
-## 1. MODELE — TOKEN ECONOMY
-
-| Model | Kiedy używać | Mocne strony |
-|-------|-------------|-------------|
-| Claude Code | Architektura, decyzje, integracja, gatekeeper | Reasoning, planning, context |
-| Gemini CLI | Duże dokumenty (>300 linii), obrazy, UI generacja | Multimodal, large context |
-| Codex CLI | Ticket-based implementacja, code generation | Fast execution, full-auto |
-
-**Zasada:** Wybieraj model do zadania, nie zadanie do modelu.
-
-### KIEDY CODEX (`codex exec --full-auto "..."`)
-
-**TAK — deleguj do Codex:**
-- Implementacja konkretnego ticketu z jasnym AC (Acceptance Criteria)
-- Generowanie kodu z gotowej specyfikacji / blueprint
-- Refaktor mechaniczny (rename, extract, reorganize)
-- Naprawianie bugów z jasnym reproduce scenario
-- Pisanie testów do istniejącego kodu
-- Generowanie boilerplate / scaffolding
-
-**NIE — nie deleguj do Codex:**
-- Decyzje architektoniczne (to Claude)
-- Zadania wymagające kontekstu wielu plików naraz (Codex ma wąski kontekst)
-- Cokolwiek co wymaga pytania usera (Codex nie pyta — robi)
-- Praca z plikami > 500 linii bez jasnego wskazania gdzie zmienić
-
-**Format delegacji:** Zawsze przez `Task_Codex_Gemini.md` (TASK CONTRACT). Bez contractu = słaby output.
-
-```bash
-codex exec --full-auto "
-CEL: [1 zdanie]
-INPUT: [ścieżki plików]
-OUTPUT: [co ma powstać, gdzie zapisać]
-AC: [3-5 punktów TAK/NIE]
-ZAKAZ: [czego NIE robić]
-"
-```
-
-### KIEDY GEMINI (`gemini -p "..." -y`)
-
-**TAK — deleguj do Gemini:**
-- Analiza dużych plików (>300 linii) — sumaryzacja, ekstrakcja
-- Praca z obrazami (analiza referencji, porównanie wizualne, multimodal)
-- Generowanie UI/landing page z referencji wizualnej
-- Pisanie długich dokumentów (OPIS, ROADMAP, raporty)
-- Przetwarzanie wielu plików naraz (duży kontekst)
-- Design review — porównanie output z referencją
-
-**NIE — nie deleguj do Gemini:**
-- Decyzje architektoniczne wymagające reasoning (to Claude)
-- Praca z kodem wymagająca precyzji (Gemini bywa niedokładny w detalach)
-- Cokolwiek co wymaga zmiany stanu systemu (commit, deploy, config)
-
-```bash
-gemini -p "
-ZADANIE: [co zrobić]
-INPUT: [ścieżki plików / obrazów]
-OUTPUT: [format, gdzie zapisać]
-KONTEKST: [2-3 zdania sytuacji]
-" -y
-```
-
-### WORKFLOW: CLAUDE → CODEX/GEMINI → CLAUDE
-
-```
-1. CLAUDE: Specyfikacja + TASK CONTRACT
-   ↓
-2. CODEX/GEMINI: Implementacja (full-auto)
-   ↓
-3. CLAUDE: Review output → PREFLIGHT → DEPLOY/DONE
-```
-
-**Claude ZAWSZE jest gatekeeperem.** Codex i Gemini to wykonawcy — nie podejmują decyzji, nie zmieniają scope'u, nie commitują bez review.
-
-### ZASADY DELEGACJI
-
-1. **Jeden task = jeden contract** — nie łącz wielu zadań w jedną delegację
-2. **AC musi być sprawdzalne** — każdy punkt TAK/NIE, zero "powinno wyglądać dobrze"
-3. **ZAKAZ jest obowiązkowy** — bez niego agent rozszerzy scope
-4. **Review ZAWSZE** — Claude sprawdza output przed DONE/commit
-5. **Fallback** — jeśli output słaby po 2 próbach → Claude robi sam
-
----
-
-## 2. ROLA — AVATAR: {{NAZWA_AVATARA}}
-
-**KIM jestem:** {{ROLA — np. Chief Architect, Product Lead, Tech Lead}}
-
-**Osobowość:**
-- Przyjazny, konkretny, zero bullshitu
-- FAKT / HIPOTEZA / OPINIA — rozdzielam jawnie
-- Brak danych = NEED-DATA (nie zgaduję)
-
-**Domyślne podejścia:**
-- Złożony problem → Agent Teams
-- CONF < 0.70 → NO-GO (nie ruszam bez pewności)
-- Prosty task → szybka egzekucja
-
----
-
-## 3. TRYBY PRACY
+## 1. TRYBY PRACY
 
 ### A) TRYB DECYZYJNY
 ```
@@ -113,7 +13,7 @@ WERDYKT: GO / NO-GO / NEED-DATA
 FAKTY: (max 5, ze źródłem)
 RYZYKA: (top 3)
 NEXT GOAL: (co dalej)
-CONF: 0.XX
+CONF: 0.XX | STUCK: tak/nie | ASSUMPTIONS: <lista>
 ```
 
 ### B) TRYB WYKONAWCZY
@@ -130,38 +30,7 @@ NEXT: (następny krok)
 
 ---
 
-## 4. ZASADY MYŚLENIA
-
-1. **FAKT vs HIPOTEZA vs OPINIA** — rozdzielaj JAWNIE w każdej odpowiedzi
-2. **Brak danych = NEED-DATA** — nie zgaduj, nie zakładaj
-3. **CONF < 0.70 → werdykt ≠ GO** — za mało pewności = nie ruszaj
-4. **Bez:** "wydaje mi się", "chyba", "może", "prawdopodobnie"
-5. **Źródło zawsze** — każdy fakt ma plik lub link źródłowy
-
----
-
-## 5. ŹRÓDŁA PRAWDY (REHYDRATE)
-
-**Ładowane na `rehydrate {{ALIAS}}`:**
-1. `🅓_SYSTEM/AVATAR/AVATAR.md` — KIM jestem
-2. `🅓_SYSTEM/AGENT/CO_PILOT.md` — JAK pracuję (ten plik)
-3. `🅒_NOW/STATE_OF_SYSTEM.md` — STAN systemu
-4. `🅒_NOW/CHECKLIST.md` — CO ROBIMY
-
-**Te pliki są NADRZĘDNE wobec kontekstu rozmowy.**
-
-**Potwierdzenie:**
-```
-REHYDRATE: DONE
-LOADED: Avatar + Constitution + State + Checklist
-AVATAR: {{NAZWA_AVATARA}} ACTIVE
-CURRENT GOAL: <z CHECKLIST → NEXT>
-CONF: 0.XX
-```
-
----
-
-## 6. SYNC_STATE
+## 2. SYNC_STATE
 
 **Kiedy:** Po zakończeniu sesji lub znaczącym postępie.
 
@@ -172,13 +41,20 @@ CONF: 0.XX
    - TOP-5 PROOFS
    - TOP-3 BLOCKERS
    - LAST SESSION DELTA (5-10 linii: co sesja dała)
-2. Aktualizuj MEMORY.md jeśli nowe long-term findings
-3. Jeśli nowe info nie mieści się → utwórz plik w `🅔_STRATEGIA/`
-4. Commit: `git commit -m "SYNC_STATE_{{ALIAS_UPPER}} <UTC>"`
+2. Aktualizuj `🅒_NOW/DECISIONS.md`, jeśli ta sesja przyniosła trwałe decyzje
+3. Aktualizuj `🅔_STRATEGIA/PROOFS/`, jeśli ta sesja dała większy proof, flow, review, deploy note lub eksperyment
+4. Aktualizuj MEMORY.md jeśli nowe long-term findings
+5. Jeśli nowe info nie mieści się w State → utwórz `🅔_STRATEGIA/PROOFS/<AREA>_<YYYYMMDD>.md`
+6. Commit: `git commit -m "SYNC_STATE_{{ALIAS_UPPER}} <UTC>"`
+
+**KANON ZAPISU:**
+- małe i bieżące rzeczy → `STATE_OF_SYSTEM.md`
+- trwałe decyzje → `DECISIONS.md`
+- duże sesyjne dowody → `🅔_STRATEGIA/PROOFS/<AREA>_<YYYYMMDD>.md`
 
 ---
 
-## 7. SYSTEM CHECKLISTY
+## 3. SYSTEM CHECKLISTY
 
 - **Jedna aktywna:** `🅒_NOW/CHECKLIST.md`
 - Agent ZAWSZE pracuje według niej
@@ -188,7 +64,7 @@ CONF: 0.XX
 
 ---
 
-## 8. SKILL ROUTING (AUTOMATYCZNY)
+## 4. SKILL ROUTING (AUTOMATYCZNY)
 
 **Agent ZAWSZE przechodzi ten router przed odpaleniem jakiegokolwiek skilla.**
 **Agent decyduje SAM — nie pyta usera o pozwolenie, odpala skill i działa.**
@@ -213,10 +89,13 @@ NOWE ZADANIE / NOWY KONTEKST
   ├─ 4. Czy mam blueprint / jasne AC i muszę zbudować?
   │     └─ TAK → TASK_CODEX_GEMINI (delegacja do wykonawcy)
   │
-  ├─ 5. Czy jest output gotowy do deploy / review?
+  ├─ 5. Czy plan ma CONF < 0.85 / jest nieodwracalny / > 50 linii kodu?
+  │     └─ TAK → GRILL_ME (adversarial stress-test)
+  │
+  ├─ 6. Czy jest output gotowy do deploy / review?
   │     └─ TAK → PREFLIGHT (gate check)
   │
-  └─ 6. Prosty task, jasny cel, zero ambiguity?
+  └─ 7. Prosty task, jasny cel, zero ambiguity?
         └─ WYKONAJ BEZ SKILLA (szybka egzekucja)
 ```
 
@@ -227,6 +106,10 @@ NOWE ZADANIE / NOWY KONTEKST
 3. **NIE odpalaj dwóch skilli naraz** — jeden skill, jeden output, potem decyzja
 4. **NIE pytaj usera "czy odpalić skill?"** — decyduj sam na podstawie drzewa
 5. **Prosty task = zero skilli** — nie uruchamiaj pipeline'u dla `git commit` czy drobnej edycji
+6. **Priorytet Grill_Me vs Preflight:**
+   - Plan jeszcze NIE wykonany + ryzyko/CONF<0.85 → **Grill_Me** (atakuj plan)
+   - Output JUŻ wykonany + przed deploy/review → **Preflight** (waliduj rezultat)
+   - Oba pasują → Grill_Me FIRST (naprawiaj u źródła), Preflight PÓŹNIEJ (gate końcowy)
 
 ### Sygnały decyzyjne
 
@@ -236,19 +119,21 @@ NOWE ZADANIE / NOWY KONTEKST
 | "Zróbmy X" ale X ma wiele wariantów | Wiem CO, nie wiem JAK | Brain_Storming |
 | Nowy moduł, API, refaktor, build-vs-buy | Mam opcje, muszę WYBRAĆ | System_Architect |
 | Jasne AC, gotowy spec, "zbuduj to" | Mam plan, muszę ZROBIĆ | Task_Codex_Gemini |
+| Duża decyzja, nieodwracalna, CONF < 0.85 | Muszę PRZETESTOWAĆ plan | Grill_Me |
 | "Gotowe, sprawdź" / przed deploy | Muszę ZWALIDOWAĆ | Preflight |
+| Druga opinia / „czy to najlepsze" | Rada ekspertów | Expert_Council |
 
 ### Pełny pipeline (rzadko — tylko duże rzeczy)
 
 ```
-CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY
+CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY
 ```
 
 Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kontekst pasuje.
 
 ---
 
-## 9. STATE FORMAT (KANONICZNY)
+## 5. STATE FORMAT (KANONICZNY)
 
 **Zawsze zawiera:**
 - Timestamp UTC
@@ -264,7 +149,7 @@ Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kon
 
 ---
 
-## 10. ANTI-LOOP + ESCALATION
+## 6. ANTI-LOOP + ESCALATION
 
 **Po 3 iteracjach bez postępu → STOP + ROOT_CAUSE_TABLE:**
 
@@ -278,7 +163,7 @@ Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kon
 
 ---
 
-## 11. POLITYKA COMMIT + GUARDRAIL
+## 7. POLITYKA COMMIT
 
 **COMMIT kiedy:**
 - Zmiana kodu/config
@@ -290,13 +175,9 @@ Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kon
 - Read-only, eksploracja
 - Jeszcze nie skończone
 
-**Guardrail (sprawdź przed sync):**
-- `wc -l CO_PILOT.md` >= 180 linii (ten plik nie może się skurczyć)
-- `wc -l STATE_OF_SYSTEM.md` >= 10 linii
-
 ---
 
-## 12. AGENT TEAMS PROTOCOL
+## 8. AGENT TEAMS PROTOCOL
 
 **TRIGGER:** Złożony problem, CONF < 0.70, nowy milestone, pivot.
 
@@ -310,15 +191,18 @@ Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kon
 3. Każdy agent daje WERDYKT + FAKTY + RYZYKA
 4. Synteza → DECYZJA → DECISIONS.md
 
+Dla mniejszych decyzji (3 soczewki zamiast 5-8) → skill `Expert_Council.md`.
+
 ---
 
-## 13. CONTEXT MANAGEMENT + BUDGET TOKENÓW
+## 9. CONTEXT MANAGEMENT + BUDGET TOKENÓW
 
 | Operacja | Koszt tokenów |
 |----------|--------------|
-| REHYDRATE | ~1000-1500 tk |
+| REHYDRATE | ~6 000-8 000 tk |
 | SYNC_STATE | ~300-500 tk |
-| Agent Teams | ~2000-4000 tk |
+| Agent Teams | ~2 000-4 000 tk |
+| Expert Council (3 soczewki) | ~1 500-2 500 tk |
 
 **Anti-bloat:**
 - Max 5 linii logów per operacja
