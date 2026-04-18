@@ -1,100 +1,72 @@
 # AGENTS — {{NAZWA_PROJEKTU}}
 
-> Mapa operacyjna projektu. **CORE (tożsamość + tryb myślenia) → `MIND.md`.**
-> Operating Core, priorytety poznawcze i zasady pracy — patrz `MIND.md`.
+> Mapa operacyjna. CORE → `MIND.md`. Procedury → `CO_PILOT.md`.
 
----
-
-## Alias projektu: `{{ALIAS_PROJEKTU}}`
-
----
+**Alias:** `{{ALIAS_PROJEKTU}}`
 
 ## REHYDRATE — 6 pozycji (w tej kolejności)
 
-1. **`MIND.md`** — **CORE: tożsamość Muaddib + tryb poznawczy (MUSI być #1)**
-2. `🅓_SYSTEM/AVATAR/AVATAR.md` — parametry avatara projektu (imię/rola)
-3. `🅓_SYSTEM/AGENT/CO_PILOT.md` — konstytucja operacyjna (sync §2, router §4)
-4. `🅒_NOW/STATE_OF_SYSTEM.md` — STAN systemu (top-10 facts, blockers)
-5. `🅒_NOW/CHECKLIST.md` — CO ROBIMY (single source of truth)
-6. `🅒_NOW/DECISIONS.md` — trwałe decyzje projektu
+1. **`MIND.md`** — **CORE: tożsamość + tryb poznawczy (MUSI być #1)**
+2. `🅓_SYSTEM/AVATAR/AVATAR.md` — avatar (imię/rola)
+3. `🅓_SYSTEM/AGENT/CO_PILOT.md` — konstytucja operacyjna
+4. `🅒_NOW/STATE_OF_SYSTEM.md` — stan systemu
+5. `🅒_NOW/CHECKLIST.md` — co robimy (SSOT)
+6. `🅒_NOW/DECISIONS.md` — trwałe decyzje
 
-> **PROOFS/** — NIE w rehydrate. Agent zapisuje tam dowody w trakcie pracy, ale nie ładuje ich na start.
-> STATE_OF_SYSTEM.md (TOP-5 PROOFS) służy jako pointer do katalogu — wystarczy.
+> **PROOFS/** — NIE w rehydrate. Agent zapisuje dowody w trakcie pracy, STATE ma pointery (TOP-5 PROOFS).
 
-**Po załadowaniu odpowiedz:**
+**Po załadowaniu:**
 ```
-REHYDRATE: DONE
-CORE: Muaddib ACTIVE (MIND loaded)
+REHYDRATE: DONE | CORE: Muaddib ACTIVE
 LOADED: Avatar + Constitution + State + Checklist + Decisions
 CURRENT GOAL: <z CHECKLIST → NEXT>
 CONF: 0.XX | STUCK: nie | ASSUMPTIONS: <lista lub brak>
 ```
 
-### PARTIAL REHYDRATE — aliasy na odświeżanie w trakcie sesji
+### PARTIAL REHYDRATE
 
-| Komenda | Co ładuje | ~Tokenów | Kiedy |
-|---------|-----------|----------|-------|
-| `rehydrate {{ALIAS}}` | Wszystkie 6 pozycji | ~7 000 | Start sesji |
-| `rehydrate core` | MIND.md + CO_PILOT.md | ~3 500 | Utrata kontekstu operacyjnego |
-| `rehydrate state` | STATE_OF_SYSTEM.md + CHECKLIST.md | ~1 500 | Sprawdzenie "gdzie jestem" |
-| `rehydrate decisions` | DECISIONS.md | ~500 | Przed decyzją (sprawdź czy nie podjęta) |
-
----
+| Komenda | Ładuje | ~Tokenów | Kiedy |
+|---------|--------|----------|-------|
+| `rehydrate {{ALIAS}}` | Wszystkie 6 | ~4 000-5 000 | Start sesji |
+| `rehydrate core` | MIND + CO_PILOT | ~2 500 | Utrata kontekstu |
+| `rehydrate state` | STATE + CHECKLIST | ~1 500 | "Gdzie jestem?" |
+| `rehydrate decisions` | DECISIONS | ~500 | Przed decyzją |
 
 ## SYNC_STATE
 
-Procedura + kanon zapisu → `🅓_SYSTEM/AGENT/CO_PILOT.md` §2 (źródło prawdy).
-
----
+Procedura → `CO_PILOT.md` §2 (SSOT).
 
 ## SKILLe (DYNAMIC MATCHING)
 
-**Katalog:** `🅓_SYSTEM/SKILL/`
+**Katalog:** `🅓_SYSTEM/SKILL/` | 1 skill per operacja | NIE ładuj przy rehydrate
+Agent SPRAWDZA katalog przy każdym zadaniu (glob `*.md`, nie hardcode).
 
-**ZASADA:** Przy KAŻDYM zadaniu, planowaniu lub operacji — agent SPRAWDZA katalog SKILL/ (glob *.md) i CZYTA odpowiedniego skilla jeśli kontekst pasuje.
+| Skill | Trigger |
+|-------|---------|
+| Brain_Storming | Nowy moduł, pivot, CONF<0.70, wiele opcji, kreatywna sesja |
+| Check_Me | Niejasny cel, brak danych, wywiad z userem |
+| System_Architect | Architektura, build-vs-buy, refaktor, API |
+| Grill_Me | >50 linii, nieodwracalne, CONF<0.85, sprzeczność |
+| Task_Codex_Gemini | Delegacja do Codex/Gemini (ZAWSZE przez template) |
+| Preflight | Przed deploy/review/DONE |
+| Expert_Council | Druga opinia, stress-test decyzji |
+| Reflect | Koniec sesji → lekcje + update SOUL/LESSONS/ToV |
+| Context_Forge | Optymalizacja kontekstu + uczenie agenta — co 5-10 sesji, rehydrate > 6k tk, agent nie pamięta, ta sama korekta 2x |
+| Tone_Of_Voice | Tekst publiczny, content |
+| Create_Skill | Instalacja nowego skilla |
+| DESIGN_ARSENAL | UI/design, frontend aesthetic |
+| ~~Mapping~~ | SUBMODUŁ Reflect — nie skill |
 
-- NIE hardcoduj listy skilli — zawsze glob + wybierz pasujący
-- NIE ładuj skilli przy rehydrate
-- Jeden skill per operacja (chyba że kontekst wymaga więcej)
-
-### Mapa triggerów
-
-| Skill | Kiedy uruchomić |
-|-------|----------------|
-| **Brain_Storming.md** | Nowy moduł, nowa funkcja, pivot, CONF < 0.70, wiele opcji do eksploracji, kreatywna sesja |
-| **Check_Me.md** | Niejasny cel, nowy temat, CONF < 0.70, brak danych, potrzeba wywiadu z userem |
-| **System_Architect.md** | Nowy moduł, decyzja build-vs-buy, refaktor, projektowanie API, analiza techniczna |
-| **Grill_Me.md** | Przed implementacją >50 linii, nieodwracalna zmiana, CONF < 0.85, sprzeczność w planie |
-| **Task_Codex_Gemini.md** | Delegacja zadania do Codex lub Gemini (ZAWSZE przez ten template) |
-| **Preflight.md** | Przed deploy, przed review foundera, przed oznaczeniem DONE |
-| **Expert_Council.md** | Druga opinia, rada ekspertów, stress-test dużej decyzji architektonicznej |
-| **Reflect.md** | Koniec sesji — wyciągnij lekcje, zaproponuj update `SOUL/character.md` / `LESSONS.md` / `Tone_Of_Voice.md` |
-| **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
-| **Create_Skill.md** | Instalacja nowego skilla z Anthropic repo (meta-skill) |
-| **DESIGN_ARSENAL.md** | UI/design, wizualne decyzje, frontend aesthetic |
-| **Context_Forge.md** | Optymalizacja kontekstu + uczenie agenta — co 5-10 sesji lub gdy rehydrate > 6k tokenów, agent nie pamięta, Fi koryguje 2x to samo |
-| ~~**Mapping.md**~~ | ⚠️ SUBMODUŁ Reflect — nie skill. Nie matchować w routerze, nie globować osobno |
-
-### Sunset clause
-
-Skill nieużyty **> 60 dni** → kandydat do review przy następnym SYNC_STATE.
-Decyzja: żywy / uśpić do `🅖_ARCHIVE/SKILL/` / usunąć. Zapobiega muzealizacji.
-
-### Skill Routing (AUTOMATYCZNY)
-
-Agent decyduje SAM — pełna logika routingu w `CO_PILOT.md` §4 (źródło prawdy).
-
----
+**Sunset:** >60 dni nieużyty → review → żywy / archive / usuń.
+**Routing:** Agent decyduje SAM → `CO_PILOT.md` §4.
 
 ## CLI Tools
 
-| Narzędzie | Komenda | Rola |
-|-----------|---------|------|
-| Claude | `claude` | Architektura, decyzje, integracja |
-| Gemini | `gemini -p "..." -y` | Design, multimodal, duże pliki |
-| Codex | `codex exec --full-auto "..."` | Implementacja ticket-based |
-
----
+| Tool | Komenda | Rola |
+|------|---------|------|
+| Claude | `claude` | Architektura, decyzje |
+| Gemini | `gemini -p "..." -y` | Design, multimodal |
+| Codex | `codex exec --full-auto "..."` | Implementacja |
 
 ## Deploy
 
