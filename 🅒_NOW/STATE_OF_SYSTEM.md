@@ -1,6 +1,6 @@
-# STATE OF SYSTEM — {{NAZWA_PROJEKTU}}
+# STATE OF SYSTEM — TEMPLE_REPO
 
-> Timestamp UTC: {{YYYY-MM-DDTHH:MM:SSZ}}
+> Timestamp UTC: 2026-04-18T12:00:00Z
 
 ---
 
@@ -8,16 +8,16 @@
 
 | # | Fakt | Źródło |
 |---|------|--------|
-| 1 | {{Fakt 1 — np. "Projekt zainicjowany, struktura 🅐-🅖 gotowa"}} | `INDEX.md` |
-| 2 | {{Fakt 2}} | {{Plik źródłowy}} |
-| 3 | {{Fakt 3}} | {{Plik}} |
-| 4 | — | — |
-| 5 | — | — |
-| 6 | — | — |
-| 7 | — | — |
-| 8 | — | — |
-| 9 | — | — |
-| 10 | — | — |
+| 1 | Struktura 🅐-🅖 kompletna, 23 pliki | `INDEX.md` |
+| 2 | 12 skilli operacyjnych w SKILL/ (Mapping = submoduł Reflect) | `AGENTS.md` |
+| 3 | CO_PILOT ma zamkniętą pętlę Reflect: krok 0 (korekta) + krok 8 (sesja) + SYNC §0 | `CO_PILOT.md` |
+| 4 | MIND.md i CO_PILOT.md są spójne (todo→CHECKLIST, subagenci alignment) | Grill_Me audit |
+| 5 | Partial rehydrate dostępny: core/state/decisions | `AGENTS.md` |
+| 6 | INIT.md ma blocking gate na pustą CONSTITUTION (krok 4.5) | `INIT.md` |
+| 7 | _TEMPLATE_SKILL.md przeniesiony do root (poza SKILL/) | git diff |
+| 8 | LESSONS.md ma pierwszy wpis (L1 — token budget) | `LESSONS.md` |
+| 9 | BOOT.md zaplanowany jako next big feature (kompresja rehydrate 16x) | plan file |
+| 10 | Szablon CONF: 0.90+ po 6 fixach z Grill_Me | ta sesja |
 
 ---
 
@@ -25,11 +25,11 @@
 
 | # | Proof | Co udowadnia |
 |---|-------|-------------|
-| 1 | `CONSTITUTION.md` | Wartości i zasady zdefiniowane |
-| 2 | {{Ścieżka pliku}} | {{Co udowadnia}} |
-| 3 | — | — |
-| 4 | — | — |
-| 5 | — | — |
+| 1 | `CO_PILOT.md` §4 krok 0+8 | Pętla samodoskonalenia zamknięta |
+| 2 | `MIND.md` §62-77 | CHECKLIST.md = SSOT (nie todo.md) |
+| 3 | `AGENTS.md` PARTIAL REHYDRATE | Token-efficient context loading dostępny |
+| 4 | `INIT.md` krok 4.5 | CONSTITUTION gate blokuje pusty bootstrap |
+| 5 | `LESSONS.md` L1 | Pierwsza lekcja cross-session zapisana |
 
 ---
 
@@ -37,37 +37,42 @@
 
 | # | Blocker | Typ | Status |
 |---|---------|-----|--------|
-| 1 | {{Blocker lub "BRAK"}} | {{DATA/TECH/PRODUCT/EXTERNAL/LEGAL}} | {{ACTIVE/RESOLVED}} |
-| 2 | — | — | — |
-| 3 | — | — | — |
+| 1 | BOOT.md nie wdrożony — rehydrate nadal kosztuje ~8k tokenów | TECH | ACTIVE |
+| 2 | BRAK | — | — |
+| 3 | BRAK | — | — |
 
 ---
 
 ## NEXT
 
-→ Wskazuje na: `🅒_NOW/CHECKLIST.md` → NEXT #1
+→ Wskazuje na: BOOT.md implementation (następna sesja)
 
-**Aktualny cel:** {{Opis aktualnego celu z CHECKLIST}}
+**Aktualny cel:** Wdrożyć BOOT.md — auto-generowany BIOS agenta (~500 tokenów zamiast ~8000)
 
 ---
 
 ## CONF
 
-**Confidence:** 0.{{XX}}
+**Confidence:** 0.90
 
 **Co podniesie CONF:**
-- {{Warunek 1 — np. "MVP LIVE → +0.10"}}
-- {{Warunek 2}}
+- BOOT.md wdrożony i przetestowany → +0.05
+- Propagacja fixów do GOFANS/MCP/MALING → +0.05
 
 ---
 
 ## LAST SESSION DELTA
 
 ```
-Data: {{YYYY-MM-DD}}
+Data: 2026-04-18
 Co nowego:
-- {{Zmiana 1}}
-- {{Zmiana 2}}
-- {{Zmiana 3}}
-Agent: {{Kto pracował — Claude/Gemini/Codex}}
+- Audyt Grill_Me: 6 problemów znalezionych, 6 fixów wdrożonych
+- Pętla Reflect zamknięta w CO_PILOT (router krok 0+8, SYNC krok 0)
+- MIND.md przepisany: todo→CHECKLIST, subagenci alignment, emoji→character
+- Partial rehydrate dodany do AGENTS.md
+- SKILL/ cleanup: _TEMPLATE→root, Mapping=submoduł
+- INIT.md: CONSTITUTION blocking gate
+- BOOT.md zaplanowany (plan file gotowy)
+- Pierwszy wpis w LESSONS.md (L1: token budget)
+Agent: Claude (Muaddib)
 ```

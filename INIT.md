@@ -110,6 +110,16 @@ Plik: `🅒_NOW/CHECKLIST.md` — zastąp szablon wpisem:
 - [x] INIT projekt z TEMPLE (<data UTC>)
 ```
 
+### Krok 4.5 — GATE: Waliduj CONSTITUTION
+
+**BLOCKING:** Sprawdź `CONSTITUTION.md`:
+
+```bash
+grep -c "{{" CONSTITUTION.md
+```
+
+Jeśli wynik > 0 → **STOP**. Konstytucja musi być wypełniona przed dalszym bootstrapem. Agent bez granic = agent bez kontroli. Wróć do Fi i wypełnij wartości, misję i Dekalog.
+
 ### Krok 5 — Zainicjuj STATE
 
 Plik: `🅒_NOW/STATE_OF_SYSTEM.md` — zastąp wpisem:

@@ -28,6 +28,15 @@ CURRENT GOAL: <z CHECKLIST → NEXT>
 CONF: 0.XX | STUCK: nie | ASSUMPTIONS: <lista lub brak>
 ```
 
+### PARTIAL REHYDRATE — aliasy na odświeżanie w trakcie sesji
+
+| Komenda | Co ładuje | ~Tokenów | Kiedy |
+|---------|-----------|----------|-------|
+| `rehydrate {{ALIAS}}` | Wszystkie 7 pozycji | ~8 000 | Start sesji |
+| `rehydrate core` | MIND.md + CO_PILOT.md | ~3 500 | Utrata kontekstu operacyjnego |
+| `rehydrate state` | STATE_OF_SYSTEM.md + CHECKLIST.md | ~1 500 | Sprawdzenie "gdzie jestem" |
+| `rehydrate decisions` | DECISIONS.md + PROOFS/ | ~1 000 | Przed decyzją (sprawdź czy nie podjęta) |
+
 ---
 
 ## SYNC_STATE
@@ -61,8 +70,7 @@ Procedura + kanon zapisu → `🅓_SYSTEM/AGENT/CO_PILOT.md` §2 (źródło praw
 | **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
 | **Create_Skill.md** | Instalacja nowego skilla z Anthropic repo (meta-skill) |
 | **DESIGN_ARSENAL.md** | UI/design, wizualne decyzje, frontend aesthetic |
-| **Mapping.md** | Używany przez Reflect — mapa sygnał→plik→sekcja (nie odpalać samodzielnie) |
-| **Claude.md** | Załadowany stale — meta-zasada myślenia agenta |
+| ~~**Mapping.md**~~ | ⚠️ SUBMODUŁ Reflect — nie skill. Nie matchować w routerze, nie globować osobno |
 
 ### Sunset clause
 

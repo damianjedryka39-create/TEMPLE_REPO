@@ -119,4 +119,4 @@ Delegacja do Codex/Gemini → **zawsze przez skill** `🅓_SYSTEM/SKILL/Task_Cod
 | Bieżące zadanie | `🅒_NOW/CHECKLIST.md` |
 | Trwałą decyzję | `🅒_NOW/DECISIONS.md` |
 | Skill (istniejący) | `🅓_SYSTEM/SKILL/<nazwa>.md` |
-| Nowy skill | `🅓_SYSTEM/SKILL/_TEMPLATE_SKILL.md` → kopia |
+| Nowy skill | `_TEMPLATE_SKILL.md` (root) → kopia do `🅓_SYSTEM/SKILL/` |

@@ -35,6 +35,7 @@ NEXT: (następny krok)
 **Kiedy:** Po zakończeniu sesji lub znaczącym postępie.
 
 **Procedura:**
+0. Uruchom `Reflect.md` → zaproponuj update `SOUL/character.md`, `Tone_Of_Voice.md`, `LESSONS.md` (pomiń jeśli brak sygnałów)
 1. Aktualizuj `🅒_NOW/STATE_OF_SYSTEM.md`:
    - Timestamp UTC
    - TOP-10 FACTS (dodaj/usuń jeśli zmiana)
@@ -75,6 +76,11 @@ NEXT: (następny krok)
 ```
 NOWE ZADANIE / NOWY KONTEKST
   │
+  ├─ 0. Czy user KORYGUJE moje poprzednie działanie?
+  │     Sygnały: "nie", "źle", "nie tak", "powinieneś", "stop", "nie rób tego"
+  │     └─ TAK → obsłuż korektę → REFLECT (zapisz lekcję do LESSONS.md)
+  │              Po zakończeniu → wróć do routera
+  │
   ├─ 1. Czy wiem CO user chce osiągnąć?
   │     └─ NIE → CHECK_ME (wywiad z userem)
   │              Po zakończeniu → wróć do routera
@@ -96,8 +102,12 @@ NOWE ZADANIE / NOWY KONTEKST
   ├─ 6. Czy jest output gotowy do deploy / review?
   │     └─ TAK → PREFLIGHT (gate check)
   │
-  └─ 7. Prosty task, jasny cel, zero ambiguity?
-        └─ WYKONAJ BEZ SKILLA (szybka egzekucja)
+  ├─ 7. Prosty task, jasny cel, zero ambiguity?
+  │     └─ WYKONAJ BEZ SKILLA (szybka egzekucja)
+  │
+  └─ 8. Czy user zamyka sesję?
+        Sygnały: "sync_state", "koniec", "gotowe", "dobranoc", "to tyle"
+        └─ TAK → REFLECT (przed SYNC_STATE) → potem SYNC_STATE
 ```
 
 ### Zasady routingu
@@ -122,12 +132,14 @@ NOWE ZADANIE / NOWY KONTEKST
 | Jasne AC, gotowy spec, "zbuduj to" | Mam plan, muszę ZROBIĆ | Task_Codex_Gemini |
 | Duża decyzja, nieodwracalna, CONF < 0.85 | Muszę PRZETESTOWAĆ plan | Grill_Me |
 | "Gotowe, sprawdź" / przed deploy | Muszę ZWALIDOWAĆ | Preflight |
+| User koryguje agenta / "nie tak" / "źle" | Muszę WYCIĄGNĄĆ LEKCJĘ | Reflect |
+| "Koniec" / "sync_state" / "dobranoc" | Muszę ZAMKNĄĆ SESJĘ | Reflect → Sync |
 | Druga opinia / „czy to najlepsze" | Rada ekspertów | Expert_Council |
 
 ### Pełny pipeline (rzadko — tylko duże rzeczy)
 
 ```
-CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY
+CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY → REFLECT → SYNC_STATE
 ```
 
 Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kontekst pasuje.
