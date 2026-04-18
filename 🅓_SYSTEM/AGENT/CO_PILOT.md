@@ -1,7 +1,7 @@
 # CO_PILOT — {{NAZWA_PROJEKTU}}
 
 > Konstytucja operacyjna: **JAK agent pracuje**.
-> Tożsamość → `MIND.md`. Avatar → `AVATAR.md`.
+> Tożsamość + avatar → `🅓_SYSTEM/AVATAR/Muaddib.md`.
 
 ## 1. TRYBY PRACY
 
@@ -77,6 +77,7 @@ Agent decyduje SAM. Nie pyta usera. Sprawdzaj SEKWENCYJNIE — pierwszy match = 
 | Zamknięcie sesji | Reflect → Sync |
 | Druga opinia | Expert_Council |
 | Agent się nie uczy / token bloat | Context_Forge |
+| Zmiana struktury plików, referencji, workflow | Workflow_Edit |
 
 **Pipeline (rzadko):** CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → IMPLEMENTACJA × N → PREFLIGHT → DEPLOY → REFLECT → SYNC → CONTEXT_FORGE (co 5-10 sesji)
 

@@ -1,17 +1,16 @@
 # AGENTS — {{NAZWA_PROJEKTU}}
 
-> Mapa operacyjna + entry point. CORE → `MIND.md`. Procedury → `CO_PILOT.md`.
+> Mapa operacyjna + entry point. CORE → `🅓_SYSTEM/AVATAR/Muaddib.md`. Procedury → `CO_PILOT.md`.
 
 **Alias:** `{{ALIAS_PROJEKTU}}`
 
-## REHYDRATE — 6 pozycji (w tej kolejności)
+## REHYDRATE — 5 pozycji (w tej kolejności)
 
-1. **`MIND.md`** — **CORE: tożsamość + tryb poznawczy (MUSI być #1)**
-2. `🅓_SYSTEM/AVATAR/AVATAR.md` — avatar (imię/rola)
-3. `🅓_SYSTEM/AGENT/CO_PILOT.md` — konstytucja operacyjna
-4. `🅒_NOW/STATE_OF_SYSTEM.md` — stan systemu
-5. `🅒_NOW/CHECKLIST.md` — co robimy (SSOT)
-6. `🅒_NOW/DECISIONS.md` — trwałe decyzje
+1. **`🅓_SYSTEM/AVATAR/Muaddib.md`** — **CORE: tożsamość + tryb poznawczy + avatar (MUSI być #1)**
+2. `🅓_SYSTEM/AGENT/CO_PILOT.md` — konstytucja operacyjna
+3. `🅒_NOW/STATE_OF_SYSTEM.md` — stan systemu
+4. `🅒_NOW/CHECKLIST.md` — co robimy (SSOT)
+5. `🅒_NOW/DECISIONS.md` — trwałe decyzje
 
 > **PROOFS/** — NIE w rehydrate. Agent zapisuje dowody w trakcie pracy, STATE ma pointery (TOP-5 PROOFS).
 
@@ -27,8 +26,8 @@ CONF: 0.XX | STUCK: nie | ASSUMPTIONS: <lista lub brak>
 
 | Komenda | Ładuje | ~Tokenów | Kiedy |
 |---------|--------|----------|-------|
-| `rehydrate {{ALIAS}}` | Wszystkie 6 | ~4 000-5 000 | Start sesji |
-| `rehydrate core` | MIND + CO_PILOT | ~2 500 | Utrata kontekstu |
+| `rehydrate {{ALIAS}}` | Wszystkie 5 | ~3 500-4 500 | Start sesji |
+| `rehydrate core` | Muaddib + CO_PILOT | ~2 500 | Utrata kontekstu |
 | `rehydrate state` | STATE + CHECKLIST | ~1 500 | "Gdzie jestem?" |
 | `rehydrate decisions` | DECISIONS | ~500 | Przed decyzją |
 
@@ -54,6 +53,7 @@ Agent SPRAWDZA katalog przy każdym zadaniu (glob `*.md`, nie hardcode).
 | Context_Forge | Optymalizacja kontekstu + uczenie agenta — co 5-10 sesji |
 | Create_Skill | Instalacja nowego skilla |
 | DESIGN_ARSENAL | UI/design, frontend aesthetic |
+| Workflow_Edit | Zmiana struktury plików workflow, referencji, rehydrate, merge/split plików |
 
 **Sunset:** >60 dni nieużyty → review → żywy / archive / usuń.
 **Routing:** Agent decyduje SAM → `CO_PILOT.md` §4.
@@ -62,7 +62,7 @@ Agent SPRAWDZA katalog przy każdym zadaniu (glob `*.md`, nie hardcode).
 
 | Plik | Owner | Temat (SSOT) | Kiedy czytać |
 |------|-------|--------------|-------------|
-| **`MIND.md`** | Agent (CORE) | Tożsamość + tryb myślenia Muaddib | Pierwszy przy rehydrate (#1) |
+| **`🅓_SYSTEM/AVATAR/Muaddib.md`** | Agent (CORE) | Tożsamość + tryb myślenia + avatar | Pierwszy przy rehydrate (#1) |
 | **`AGENTS.md`** (ten plik) | Agent + CLI | Mapa operacyjna + REHYDRATE + SSOT | Rehydrate, bootstrap |
 | **`CONSTITUTION.md`** | Projekt ({{OWNER}}) | Wartości niezmienne + Dekalog | Wątpliwość etyczna, nowa decyzja |
 | **`INIT.md`** | TEMPLE bootstrap | Procedura forku TEMPLE → nowy projekt | Tylko raz — potem `rm -f INIT.md` |
@@ -72,11 +72,11 @@ Agent SPRAWDZA katalog przy każdym zadaniu (glob `*.md`, nie hardcode).
 
 | Temat | Źródło prawdy |
 |-------|---------------|
-| Tożsamość agenta, tryb myślenia, zasady poznawcze | `MIND.md` |
+| Tożsamość agenta, tryb myślenia, zasady poznawcze, avatar | `🅓_SYSTEM/AVATAR/Muaddib.md` |
 | Rehydrate list, aliasy, mapa skilli, mapa repo | `AGENTS.md` |
 | Procedura SYNC_STATE, skill routing, polityka commit, token budget | `🅓_SYSTEM/AGENT/CO_PILOT.md` |
 | Wartości projektu, Dekalog, Non-negotiables, misja | `CONSTITUTION.md` |
-| Avatar (imię, rola, kompetencje) | `🅓_SYSTEM/AVATAR/AVATAR.md` |
+| Avatar (imię, rola, specjalizacja) | `🅓_SYSTEM/AVATAR/Muaddib.md` |
 | Głos + charakter agenta (ton, styl) | `🅓_SYSTEM/SOUL/VOICE.md` |
 | Bieżące zadania (NEXT, IN PROGRESS, DONE) | `🅒_NOW/CHECKLIST.md` |
 | Stan systemu (TOP-10 facts, blockers) | `🅒_NOW/STATE_OF_SYSTEM.md` |
@@ -99,7 +99,7 @@ Agent SPRAWDZA katalog przy każdym zadaniu (glob `*.md`, nie hardcode).
 ### Podkatalogi `🅓_SYSTEM/`
 
 - `AGENT/CO_PILOT.md` — konstytucja operacyjna (procedury, router, sync, token budget)
-- `AVATAR/AVATAR.md` — tożsamość agenta w projekcie (imię, rola, kompetencje)
+- `AVATAR/Muaddib.md` — CORE: tożsamość + tryb poznawczy + avatar (imię, rola, specjalizacja)
 - `SOUL/VOICE.md` — głos + charakter agenta (rośnie przez Reflect)
 - `SKILL/*.md` — skille dynamiczne — ładowane on-demand przez router w `CO_PILOT.md §4`
 
@@ -123,11 +123,11 @@ Delegacja do zewnętrznych agentów → **manualnie przez Fi**, nie automatyczni
 
 | Chcę zmienić... | Idę do... |
 |-----------------|-----------|
-| Sposób myślenia agenta | `MIND.md` |
+| Sposób myślenia agenta / avatar | `🅓_SYSTEM/AVATAR/Muaddib.md` |
 | Procedurę pracy (sync, commit, routing) | `🅓_SYSTEM/AGENT/CO_PILOT.md` |
 | Listę plików do rehydrate | `AGENTS.md §REHYDRATE` |
 | Wartość / zasadę projektu | `CONSTITUTION.md` |
-| Imię/rolę avatara | `🅓_SYSTEM/AVATAR/AVATAR.md` |
+| Imię/rolę/specjalizację avatara | `🅓_SYSTEM/AVATAR/Muaddib.md` |
 | Bieżące zadanie | `🅒_NOW/CHECKLIST.md` |
 | Trwałą decyzję | `🅒_NOW/DECISIONS.md` |
 | Skill (istniejący) | `🅓_SYSTEM/SKILL/<nazwa>.md` |

@@ -33,4 +33,5 @@
 
 > Trwałe odkrycia, wzorce i "aha moments" — destylat, nie dziennik.
 
-*(pusty — pierwszy wpis pojawi się gdy pojawi się pierwszy long-term insight)*
+**F1 — Workflow to żywy system (2026-04-18)**
+Fi traktuje strukturę plików jako ewoluujący organizm, nie statyczny szablon. Oczekuje od agenta zdolności do bezpiecznej samoedycji workflow (dodaj/usuń/przenieś/merge pliki) BEZ prowadzenia za rękę. Kluczowe: agent musi pilnować referencji, refactorować grepem, i stress-testować zmiany (Grill_Me) zanim zakończy.

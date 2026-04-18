@@ -14,7 +14,7 @@ rule: "Nie debatuj ponownie — jeśli temat był tu zdecydowany, agent czyta de
 
 | # | Data | Decyzja | Opcje rozważane | Dlaczego | CONF |
 |---|------|---------|-----------------|----------|------|
-| D1 | 2026-04-18 | CHECKLIST.md = SSOT zadań | — | Żyje w MIND + CO_PILOT §3 | 0.95 |
+| D1 | 2026-04-18 | CHECKLIST.md = SSOT zadań | — | Żyje w Muaddib.md + CO_PILOT §3 | 0.95 |
 | D2 | 2026-04-18 | Agent decyduje sam o skillach | — | Żyje w CO_PILOT §4 | 0.90 |
 | D3 | 2026-04-18 | Reflect auto w routerze (krok 0+8) | — | Żyje w CO_PILOT §4 | 0.92 |
 | D4 | 2026-04-18 | Partial rehydrate: core/state/decisions | full-only vs partial | 8k tokenów na start to za dużo. Partial pozwala na 1.5k refresh mid-session | 0.88 |
@@ -24,6 +24,7 @@ rule: "Nie debatuj ponownie — jeśli temat był tu zdecydowany, agent czyta de
 | D8 | 2026-04-18 | Konsolidacja: character+ToV→VOICE.md, Mapping→Reflect | 6 plików vs 4 pliki | Jedno źródło prawdy o głosie agenta, Reflect samowystarczalny. 2 pliki mniej, zero duplikacji "jak mówię" | 0.93 |
 | D9 | 2026-04-18 | INDEX→AGENTS, MEMORY→LESSONS (7→5 root plików) | osobne vs merge | INDEX duplikował CLI/deploy/rehydrate z AGENTS. MEMORY pusty, LESSONS robi tę samą robotę. Merge = zero split-brain, -2 pliki | 0.95 |
 | D10 | 2026-04-18 | Codex/Gemini wyłączone z auto-workflow. Tylko Claude + manualna delegacja | auto vs manual | Fi nie chce auto-delegacji. Claude = jedyny agent. Codex dostępny jako skill do ręcznego użycia przez Fi | 0.95 |
+| D11 | 2026-04-18 | MIND.md + AVATAR.md → Muaddib.md (🅓_SYSTEM/AVATAR/) | osobne vs merge | AVATAR dekoracyjny (kompetencje, motto = zero wpływu na agenta). MIND miał tożsamość, AVATAR duplikował. Merge = 1 plik CORE, rehydrate 6→5, -1 root plik. Specjalizacja per-projekt zachowana jako sekcja | 0.92 |
 
 ---
 

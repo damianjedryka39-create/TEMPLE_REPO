@@ -183,7 +183,7 @@ CONF: 0.90 | STUCK: nie | ASSUMPTIONS: brak
 2. **NIE zmieniaj skilli** w `🅓_SYSTEM/SKILL/` — kopiuj 1:1. Skille są uniwersalne.
 3. **NIE wypełniaj `lessons.md`** — zostaje pusty, rośnie z czasem przez REFLECT.
 4. **NIE wypełniaj `🅔_STRATEGIA/PROOFS/`** — zostaje pusty (tylko EXAMPLE_PROOF), rośnie w czasie.
-5. **NIE usuwaj `MIND.md`** — to CORE, wypełnia się automatycznie (placeholder NAZWA_AVATARA).
+5. **NIE usuwaj `🅓_SYSTEM/AVATAR/Muaddib.md`** — to CORE, wypełnia się automatycznie (placeholder specjalizacji).
 6. **Placeholdery TBD** są OK jeśli brak danych — nie zmyślaj URL/deploy procedur.
 7. **Jeśli coś blokuje** (brak parametru, konflikt ścieżek, plik istnieje) → STOP, zgłoś Fi, nie improwizuj.
 
@@ -192,7 +192,7 @@ CONF: 0.90 | STUCK: nie | ASSUMPTIONS: brak
 ## 5. PO INIT
 
 Od tego momentu projekt żyje samodzielnie:
-- `rehydrate <ALIAS_PROJEKTU>` → wczyta MIND + AGENTS + State + Checklist
+- `rehydrate <ALIAS_PROJEKTU>` → wczyta Muaddib + CO_PILOT + State + Checklist + Decisions
 - `sync_state` → update State + Decisions + commit
 - Nowe zadania → Router w CO_PILOT.md §4
 - Koniec sesji → skill `Reflect.md`

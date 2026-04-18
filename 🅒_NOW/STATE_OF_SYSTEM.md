@@ -1,6 +1,6 @@
 # STATE OF SYSTEM — TEMPLE_REPO
 
-> Timestamp UTC: 2026-04-18T22:30:00Z
+> Timestamp UTC: 2026-04-18T23:15:00Z
 
 ---
 
@@ -8,16 +8,16 @@
 
 | # | Fakt | Źródło |
 |---|------|--------|
-| 1 | Root plików: 5 (było 7). INDEX→AGENTS, MEMORY→LESSONS | Sesja 4 |
-| 2 | Struktura 🅐-🅖 kompletna, 11 skilli (Task_Codex_Gemini→Task_Codex) | `AGENTS.md` |
-| 3 | Rehydrate: 6 pozycji (~4-5k tk), PROOFS/ wyłączony z odczytu | `AGENTS.md` |
-| 4 | CO_PILOT: routing 0-9, krok 4 = "WYKONAJ lub Fi deleguje manualnie" | `CO_PILOT.md` §4 |
+| 1 | Root plików: 4 (AGENTS, CONSTITUTION, INIT, LESSONS). MIND→Muaddib.md w AVATAR/ | Sesja 5 |
+| 2 | Struktura 🅐-🅖 kompletna, 12 skilli (+Workflow_Edit) | `AGENTS.md` |
+| 3 | Rehydrate: 5 pozycji (~3.5-4.5k tk). AVATAR.md usunięty, MIND→Muaddib.md | `AGENTS.md`, D11 |
+| 4 | CO_PILOT: routing 0-9 + sygnał Workflow_Edit | `CO_PILOT.md` §4 |
 | 5 | Codex/Gemini wyłączone z auto-workflow. Codex dostępny jako manualny skill | Sesja 4 |
 | 6 | AGENTS.md = entry point + SSOT (wchłonął INDEX.md) | Sesja 4 |
-| 7 | LESSONS.md = lekcje + findings (wchłonął MEMORY.md). 5 wpisów (L1-L5) | Sesja 4 |
+| 7 | LESSONS.md = lekcje L1-L5 + finding F1 (workflow = żywy system) | Sesja 5 |
 | 8 | CLI Tools: tylko Claude. Delegacja = manualna decyzja Fi | `AGENTS.md` |
-| 9 | Merge DIET v2→v1 + konsolidacja z sesji 3: MIND -32%, CO_PILOT -49% | D7+D8 |
-| 10 | Sunset rule aktywna: skill >60 dni nieużyty → review | `AGENTS.md` |
+| 9 | Muaddib.md = CORE (tożsamość + tryb + avatar + specjalizacja) — 1 plik zamiast 2 | D11 |
+| 10 | Workflow_Edit.md = skill do bezpiecznej edycji struktury (5 kroków + Grill_Me) | Sesja 5 |
 
 ---
 
@@ -25,11 +25,11 @@
 
 | # | Proof | Co udowadnia |
 |---|-------|-------------|
-| 1 | `AGENTS.md` 142 linii (SSOT + mapa + rehydrate w 1 pliku) | INDEX wchłonięty bez straty informacji |
-| 2 | `LESSONS.md` sekcja Findings | MEMORY wchłonięty, jedno źródło pamięci |
-| 3 | `grep INDEX.md\|MEMORY.md` = 0 wyników | Zero osieroconych referencji |
-| 4 | `grep Gemini` = 0 wyników (poza Task_Codex.md) | Gemini kompletnie usunięty |
-| 5 | `LESSONS.md` L5 | Lekcja: adaptuj, nie kasuj |
+| 1 | `grep MIND\.md` = 0 wyników w TEMPLE_REPO | Zero osieroconych referencji po merge MIND+AVATAR→Muaddib |
+| 2 | `grep AVATAR\.md` = 0 wyników w TEMPLE_REPO | AVATAR kompletnie usunięty, referencje przeniesione |
+| 3 | `Workflow_Edit.md` zarejestrowany w AGENTS + CO_PILOT + STATE | Skill spójnie wpisany w system |
+| 4 | `LESSONS.md` F1 — finding o workflow jako żywym systemie | Agent rozumie intencję Fi |
+| 5 | D11 w DECISIONS.md | Decyzja udokumentowana z uzasadnieniem |
 
 ---
 
@@ -47,7 +47,7 @@
 
 → Wskazuje na: Propagacja TEMPLE do żywych projektów (GOFANS/MCP/MALING)
 
-**Aktualny cel:** Przetestować zmergowany + skonsolidowany + odchudzony szablon na żywym projekcie
+**Aktualny cel:** Przetestować szablon (z Muaddib.md + Workflow_Edit) na żywym projekcie
 
 ---
 
@@ -64,16 +64,16 @@
 ## LAST SESSION DELTA
 
 ```
-Data: 2026-04-18 (sesja 4 — konsolidacja plików root + workflow cleanup)
+Data: 2026-04-18 (sesja 5 — merge MIND+AVATAR→Muaddib + skill Workflow_Edit)
 Co nowego:
-- INDEX.md wchłonięty do AGENTS.md (SSOT tabela, mapa folderów, quick reference)
-- MEMORY.md wchłonięty do LESSONS.md (sekcja "Findings")
-- 2 pliki usunięte (INDEX.md, MEMORY.md): 7→5 root plików
-- Codex/Gemini wyłączone z auto-workflow
-- Task_Codex_Gemini.md → Task_Codex.md (tylko Codex, manualna delegacja przez Fi)
-- Gemini kompletnie usunięty z systemu
-- Referencje zaktualizowane w: CO_PILOT, AGENTS, Silnik, System_Architect, _TEMPLATE_SKILL
-- Silnik.md: naprawiony bug (7→6 plików), usunięty PROOFS/ z listy rehydrate
-- LESSONS: L5 (nie usuwaj narzędzi, adaptuj)
+- MIND.md + AVATAR.md → Muaddib.md (🅓_SYSTEM/AVATAR/) — 2 pliki→1, root 5→4
+- AVATAR.md usunięty (dead weight: kompetencje, motto = zero wpływu na agenta)
+- Sekcja SPECJALIZACJA dodana do Muaddib.md (jedyna wartość z AVATAR)
+- Rehydrate: 6→5 pozycji (~3.5-4.5k tk)
+- Referencje zaktualizowane w 10 plikach: AGENTS, CO_PILOT, VOICE, Silnik, Context_Forge, Reflect, INIT, DECISIONS
+- Refactor grep: MIND.md=0, AVATAR.md=0 — zero osieroconych referencji
+- Nowy skill: Workflow_Edit.md (5 kroków + Grill_Me wbudowany)
+- D11: decyzja merge MIND+AVATAR→Muaddib
+- LESSONS F1: workflow = żywy system
 Agent: Claude Opus (Muaddib)
 ```

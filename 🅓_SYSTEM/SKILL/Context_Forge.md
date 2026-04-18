@@ -99,7 +99,7 @@ Przeskanuj sesję (i poprzednie jeśli dostępne) szukając:
 | FLOW | Kiedy Fi jest w flow? Co go wytrąca? | SOUL/VOICE.md |
 | IRYTACJA | Co Fi denerwuje w agencie? (powtórki, pytania, gadanie) | LESSONS.md |
 | SKRÓTY | Jakie komendy/skróty Fi używa? Co to mówi o stylu? | SOUL/VOICE.md |
-| PRIORYTETY | Co Fi robi PIERWSZE? Co odkłada? | AVATAR.md |
+| PRIORYTETY | Co Fi robi PIERWSZE? Co odkłada? | Muaddib.md |
 | BLIND SPOTS | Czego Fi nie widzi? (nie krytyka — mapa do asystowania) | SOUL/VOICE.md (delikatnie) |
 
 ### 3B: Intuition rules
@@ -177,7 +177,7 @@ Nie numerycznie. Agent nie ma IQ 105. Ma ZACHOWANIA które świadczą o uczeniu:
 - NIE optymalizuj kosztem uczenia — skasowanie LESSONS.md "bo za dużo tokenów" = regres
 - NIE dodawaj wzorców po 1 obserwacji — minimum 2 powtórzenia lub jawna deklaracja Fi
 - NIE przeinżynieruj reguł — "Fi lubi prostotę" > "Fi preferuje minimalistyczne podejście z tendencją do redukcji złożoności w kontekście iteracyjnym"
-- NIE kompresuj MIND.md — to CORE, nietykalne
+- NIE kompresuj Muaddib.md — to CORE, nietykalne
 - NIE mierz IQ liczbą — to zachowania, nie score
 - NIE rób forge co sesję — co 5-10 sesji lub na trigger
 

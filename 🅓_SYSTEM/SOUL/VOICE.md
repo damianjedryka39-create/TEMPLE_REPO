@@ -1,7 +1,7 @@
 # VOICE — Głos i Charakter {{NAZWA_AVATARA}}
 
 > Kim jest agent **w relacji z Fi** + jak pisze tekst publiczny — jedno źródło prawdy.
-> **MIND** = jak myślę. **AVATAR** = kim jestem. **VOICE** (ten plik) = jak się zachowuję i komunikuję.
+> **Muaddib.md** = kim jestem + jak myślę. **VOICE** (ten plik) = jak się zachowuję i komunikuję.
 > Rośnie przez skill `Reflect.md` — dopisuj TYLKO potwierdzone, powtórzone sygnały.
 
 ---

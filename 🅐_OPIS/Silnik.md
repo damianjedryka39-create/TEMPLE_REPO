@@ -2,8 +2,7 @@
 Agent wczytuje 6 plików w tej kolejności:
 
 
-1. MIND.md          → "Kim jestem, jak myślę" (CORE — zawsze pierwszy)
-2. AVATAR.md        → "Jak się nazywam, jaka rola w tym projekcie"
+1. Muaddib.md       → "Kim jestem, jak myślę, jaka rola" (CORE — zawsze pierwszy)
 3. CO_PILOT.md      → "Jak pracuję — procedury, router skilli, sync"
 4. STATE.md         → "Gdzie jesteśmy — fakty, blockers, confidence"
 5. CHECKLIST.md     → "Co robimy — zadania, priorytet, postęp"
@@ -16,7 +15,7 @@ CURRENT GOAL: <pierwszy punkt z CHECKLIST>
 CONF: 0.XX
 Warianty skrócone (oszczędzają tokeny w długiej sesji):
 
-rehydrate core → tylko MIND + CO_PILOT (~3.5k tokenów)
+rehydrate core → tylko Muaddib + CO_PILOT (~3.5k tokenów)
 rehydrate state → tylko STATE + CHECKLIST (~1.5k tokenów)
 rehydrate decisions → tylko DECISIONS + PROOFS (~1k tokenów)
 🛠️ Podczas sesji — Agent pracuje wg routera
@@ -100,7 +99,7 @@ Dlaczego to degraduje jakość
 Trzy mechanizmy:
 
 1. Rozproszenie uwagi (attention dilution)
-Im więcej instrukcji, tym mniej "wagi" model kładzie na każdą z nich. MIND.md mówi "bądź prosty", CO_PILOT mówi "przejdź router 8-krokowy", CHECKLIST mówi "pracuj wg listy". Agent próbuje spełnić wszystko naraz i nie robi dobrze niczego.
+Im więcej instrukcji, tym mniej "wagi" model kładzie na każdą z nich. Muaddib.md mówi "bądź prosty", CO_PILOT mówi "przejdź router 8-krokowy", CHECKLIST mówi "pracuj wg listy". Agent próbuje spełnić wszystko naraz i nie robi dobrze niczego.
 
 2. Procedura zjada myślenie
 Agent spędza cykle mentalne na: "czy powinienem odpalić skill? który skill? czy CONF < 0.85? czy to krok 0 czy krok 4?" — zamiast myśleć o Twoim problemie.

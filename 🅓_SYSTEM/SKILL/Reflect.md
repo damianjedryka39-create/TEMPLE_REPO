@@ -8,7 +8,7 @@ cross_link: VOICE.md, LESSONS.md
 
 ## 1) Załaduj pliki (ścieżki TEMPLE)
 
-1. `🅓_SYSTEM/AVATAR/AVATAR.md` — parametry avatara
+1. `🅓_SYSTEM/AVATAR/Muaddib.md` — CORE: tożsamość + avatar
 2. `🅓_SYSTEM/SOUL/VOICE.md` — głos + charakter (wobec Fi + wobec świata)
 3. `LESSONS.md` (root, jeśli istnieje) — wcześniejsze lekcje cross-session
 
