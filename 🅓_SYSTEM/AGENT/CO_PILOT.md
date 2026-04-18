@@ -16,7 +16,7 @@
 **Kiedy:** Koniec sesji lub znaczący postęp.
 
 **Procedura:**
-0. `Reflect.md` → update SOUL/character.md, Tone_Of_Voice.md, LESSONS.md (pomiń jeśli brak sygnałów)
+0. `Reflect.md` → update SOUL/VOICE.md, LESSONS.md (pomiń jeśli brak sygnałów)
 1. `🅒_NOW/STATE_OF_SYSTEM.md` → timestamp UTC, TOP-10 FACTS, TOP-5 PROOFS, TOP-3 BLOCKERS, LAST SESSION DELTA
 2. `🅒_NOW/DECISIONS.md` → jeśli trwałe decyzje
 3. `🅔_STRATEGIA/PROOFS/` → jeśli duży proof/flow/review/deploy/eksperyment

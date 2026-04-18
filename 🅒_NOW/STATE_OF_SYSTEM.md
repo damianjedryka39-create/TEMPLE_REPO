@@ -1,6 +1,6 @@
 # STATE OF SYSTEM — TEMPLE_REPO
 
-> Timestamp UTC: 2026-04-18T23:45:00Z
+> Timestamp UTC: 2026-04-19T00:10:00Z
 
 ---
 
@@ -8,15 +8,15 @@
 
 | # | Fakt | Źródło |
 |---|------|--------|
-| 1 | Struktura 🅐-🅖 kompletna, 13 skilli (w tym Context_Forge) | `AGENTS.md` |
+| 1 | Struktura 🅐-🅖 kompletna, 11 skilli (Mapping+ToV usunięte, wchłonięte) | `AGENTS.md` |
 | 2 | Rehydrate: 6 pozycji (~4-5k tk), PROOFS/ wyłączony z odczytu | `AGENTS.md` |
 | 3 | CO_PILOT: routing 0-9 (tabela) + Context_Forge + Expert_Council overlay | `CO_PILOT.md` §4 |
-| 4 | Merge DIET v2 → v1: MIND -32%, CO_PILOT -49%, AGENTS -27% = razem -39% | D7 |
-| 5 | Context_Forge.md = silnik ewolucji agenta (LEAN + LEARN) | `SKILL/Context_Forge.md` |
-| 6 | Partial rehydrate: core/state/decisions | `AGENTS.md` |
-| 7 | INIT.md ma blocking gate na pustą CONSTITUTION (krok 4.5) | `INIT.md` |
+| 4 | Merge DIET v2 → v1 + konsolidacja: MIND -32%, CO_PILOT -49%, AGENTS -27%, 6→4 pliki SOUL/SKILL | D7+D8 |
+| 5 | VOICE.md = character.md + Tone_Of_Voice.md (jedno źródło prawdy o głosie) | `SOUL/VOICE.md` |
+| 6 | Reflect.md samowystarczalny (Mapping wchłonięty jako sekcja wewnętrzna) | `SKILL/Reflect.md` |
+| 7 | Context_Forge.md = silnik ewolucji agenta (LEAN + LEARN) | `SKILL/Context_Forge.md` |
 | 8 | LESSONS.md: 4 wpisy (L1 token budget, L2 agent evolution, L3 język nie treść, L4 reflect gate) | `LESSONS.md` |
-| 9 | Separacja MIND=CO / CO_PILOT=JAK potwierdzona po review | refactor sesja 3 |
+| 9 | Partial rehydrate: core/state/decisions | `AGENTS.md` |
 | 10 | Sunset rule aktywna: skill >60 dni nieużyty → review | `AGENTS.md` |
 
 ---
@@ -25,11 +25,11 @@
 
 | # | Proof | Co udowadnia |
 |---|-------|-------------|
-| 1 | `CO_PILOT.md` §4 krok 0+8+9 | Pętla samodoskonalenia + Context_Forge zamknięta |
-| 2 | `MIND.md` 103 linii vs 152 oryg | -39% tokenów, zero strat jakościowych (5/5 elementów przywróconych) |
-| 3 | `AGENTS.md` PARTIAL REHYDRATE | Token-efficient context loading dostępny |
-| 4 | `DECISIONS.md` D7 | Merge v2→v1 udokumentowany z uzasadnieniem |
-| 5 | `LESSONS.md` L3 | Reguła "optymalizuj JĘZYK nie TREŚĆ" z DIET v2 |
+| 1 | `MIND.md` 103 linii vs 152 oryg | -32% tokenów, zero strat jakościowych |
+| 2 | `SOUL/VOICE.md` | Konsolidacja character+ToV w 1 plik, zero duplikacji |
+| 3 | `SKILL/Reflect.md` z wbudowanym mapping | Samowystarczalny skill, Mapping.md zbędny |
+| 4 | `DECISIONS.md` D7+D8 | Merge + konsolidacja udokumentowane |
+| 5 | `LESSONS.md` L4 | Reflect = obowiązkowy gate przed sync_state |
 
 ---
 
@@ -47,16 +47,16 @@
 
 → Wskazuje na: Propagacja TEMPLE do żywych projektów (GOFANS/MCP/MALING)
 
-**Aktualny cel:** Przetestować zmergowany szablon na żywym projekcie + zdecydować co z TEMPLE_REPO_v2
+**Aktualny cel:** Przetestować zmergowany + skonsolidowany szablon na żywym projekcie
 
 ---
 
 ## CONF
 
-**Confidence:** 0.93
+**Confidence:** 0.94
 
 **Co podniesie CONF:**
-- Propagacja do żywego projektu + test → +0.04
+- Propagacja do żywego projektu + test → +0.03
 - Context_Forge run na GOFANS z realnymi danymi Fi → +0.03
 
 ---
@@ -64,15 +64,15 @@
 ## LAST SESSION DELTA
 
 ```
-Data: 2026-04-18 (sesja 3 — merge + refactor)
+Data: 2026-04-18 (sesja 3 — merge + konsolidacja)
 Co nowego:
-- Merge DIET v2 → v1: best of both worlds
-- MIND.md: v2 struktura + 5 przywróconych elementów → -32% (152→103 linii)
-- CO_PILOT.md: v2 tabela routingu + Context_Forge krok 9 + Expert_Council overlay → -49% (229→116)
-- AGENTS.md: v2 base + Sunset rule + jawna zasada glob + Context_Forge → -27% (105→77)
-- Refactor po review: K1 (MIND=CO nie JAK), K2 (SUBAGENCI pointer), K3 (literówka), W2-W6
-- LESSONS.md: L3 (optymalizuj JĘZYK nie TREŚĆ)
-- DECISIONS.md: D7 (merge v2→v1)
-- RAZEM: 486→296 linii (-39%)
+- Merge DIET v2 → v1: MIND -32%, CO_PILOT -49%, AGENTS -27% (razem -39%)
+- Konsolidacja: character.md + Tone_Of_Voice.md → VOICE.md
+- Konsolidacja: Mapping.md wchłonięty do Reflect.md
+- 3 pliki usunięte (character.md, Tone_Of_Voice.md, Mapping.md), 1 nowy (VOICE.md)
+- Referencje zaktualizowane w: CO_PILOT, AGENTS, AVATAR, INDEX, Context_Forge, Silnik, LESSONS
+- DECISIONS: D7 (merge) + D8 (konsolidacja)
+- LESSONS: L4 (reflect gate)
+- TEMPLE_REPO_v2 usunięty (wartość wchłonięta)
 Agent: Claude Opus (Muaddib)
 ```

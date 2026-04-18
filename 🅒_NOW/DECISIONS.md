@@ -21,6 +21,7 @@ rule: "Nie debatuj ponownie — jeśli temat był tu zdecydowany, agent czyta de
 | D5 | 2026-04-18 | ~~BOOT.md~~ → zastąpiony przez Context_Forge | BOOT vs odchudzanie | Kompresja przez usuwanie duplikatów > kompresja przez streszczenie | 0.90 |
 | D6 | 2026-04-18 | PROOFS/ wyłączony z rehydrate | w rehydrate vs on-demand | Agent zapisuje PROOFS w trakcie pracy, nie ładuje na start. STATE ma pointery | 0.92 |
 | D7 | 2026-04-18 | Merge DIET v2 → v1 (best of both) | v1-only vs v2-only vs merge | v2 daje -29% tokenów przez ostrzejszy język; v1 ma Context_Forge. Merge = oszczędność + ewolucja. MIND: 5 elementów przywróconych (elegancja, bezlitośnie, nauka Fi, CI, rozwój) | 0.92 |
+| D8 | 2026-04-18 | Konsolidacja: character+ToV→VOICE.md, Mapping→Reflect | 6 plików vs 4 pliki | Jedno źródło prawdy o głosie agenta, Reflect samowystarczalny. 2 pliki mniej, zero duplikacji "jak mówię" | 0.93 |
 
 ---
 

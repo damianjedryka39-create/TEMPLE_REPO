@@ -55,7 +55,7 @@ CONTEXT AUDIT
 ```
 LEARNING AUDIT
 ├── LESSONS.md entries: [ile]
-├── SOUL/character.md last update: [data]
+├── SOUL/VOICE.md last update: [data]
 ├── Powtórzone korekty Fi: [wzorce z LESSONS — co się powtarza]
 ├── Wzorce decyzyjne Fi: [z DECISIONS.md — jak Fi decyduje]
 └── Brakujące wzorce: [co agent powinien wiedzieć ale nie wie]
@@ -95,12 +95,12 @@ Przeskanuj sesję (i poprzednie jeśli dostępne) szukając:
 
 | Kategoria | Pytanie | Gdzie zapisać |
 |-----------|---------|---------------|
-| DECYZJE | Jak Fi wybiera? Szybko/wolno? Dane/intuicja? | SOUL/character.md |
-| FLOW | Kiedy Fi jest w flow? Co go wytrąca? | SOUL/character.md |
+| DECYZJE | Jak Fi wybiera? Szybko/wolno? Dane/intuicja? | SOUL/VOICE.md |
+| FLOW | Kiedy Fi jest w flow? Co go wytrąca? | SOUL/VOICE.md |
 | IRYTACJA | Co Fi denerwuje w agencie? (powtórki, pytania, gadanie) | LESSONS.md |
-| SKRÓTY | Jakie komendy/skróty Fi używa? Co to mówi o stylu? | SOUL/character.md |
+| SKRÓTY | Jakie komendy/skróty Fi używa? Co to mówi o stylu? | SOUL/VOICE.md |
 | PRIORYTETY | Co Fi robi PIERWSZE? Co odkłada? | AVATAR.md |
-| BLIND SPOTS | Czego Fi nie widzi? (nie krytyka — mapa do asystowania) | SOUL/character.md (delikatnie) |
+| BLIND SPOTS | Czego Fi nie widzi? (nie krytyka — mapa do asystowania) | SOUL/VOICE.md (delikatnie) |
 
 ### 3B: Intuition rules
 
@@ -109,7 +109,7 @@ Z każdego wzorca — wyciągnij REGUŁĘ którą agent zastosuje NASTĘPNYM raz
 ```
 PATTERN: Fi 2x poprawił pozycjonowanie elementów mikroruchami, nie masowym remanem
 RULE: Przy layout changes — proponuj 1 element na krok, nigdy masowe przesunięcia
-WHERE: LESSONS.md + SOUL/character.md → JAK PRACUJĘ Z FI
+WHERE: LESSONS.md + SOUL/VOICE.md → JAK PRACUJĘ Z FI
 ```
 
 **Test jakości reguły:** Czy nowy agent, który przeczyta TYLKO tę regułę, zachowa się tak jak Fi oczekuje? Jeśli nie — reguła jest za ogólna. Doprecyzuj.
@@ -122,7 +122,7 @@ WHERE: LESSONS.md + SOUL/character.md → JAK PRACUJĘ Z FI
 
 1. Wykonaj operacje FORGE (KILL/MERGE/COMPRESS/LINK/PROMOTE) na plikach
 2. Dopisz nowe reguły do LESSONS.md (z numerem L{N})
-3. Zaktualizuj SOUL/character.md jeśli nowe wzorce
+3. Zaktualizuj SOUL/VOICE.md jeśli nowe wzorce
 4. Zaktualizuj AGENTS.md jeśli zmienił się rehydrate
 5. Zaktualizuj STATE_OF_SYSTEM.md (nowy fakt o optymalizacji)
 

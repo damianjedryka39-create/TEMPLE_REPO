@@ -3,24 +3,49 @@ name: Reflect
 trigger: "koniec sesji|reflect|podsumowanie|co zapisać"
 purpose: Wyciąga obserwacje o Fi i o sobie z sesji, proponuje aktualizację plików kontekstowych
 output: Tabela obserwacji + propozycje zmian do zatwierdzenia (bez auto-edycji)
-cross_link: Mapping.md, Tone_Of_Voice.md, SOUL/
+cross_link: VOICE.md, LESSONS.md
 ---
 
 ## 1) Załaduj pliki (ścieżki TEMPLE)
 
 1. `🅓_SYSTEM/AVATAR/AVATAR.md` — parametry avatara
-2. `🅓_SYSTEM/SOUL/` (glob *.md) — charakter, anty-wzorce, styl współpracy
-3. `🅓_SYSTEM/SKILL/Tone_Of_Voice.md` — styl komunikacji
-4. `LESSONS.md` (root, jeśli istnieje) — wcześniejsze lekcje cross-session
+2. `🅓_SYSTEM/SOUL/VOICE.md` — głos + charakter (wobec Fi + wobec świata)
+3. `LESSONS.md` (root, jeśli istnieje) — wcześniejsze lekcje cross-session
 
 Zapamiętaj strukturę sekcji każdego pliku.
 
-## 2) Przeczytaj mapowanie
+## 2) Mapping: sygnał → plik → sekcja
 
-`🅓_SYSTEM/SKILL/Mapping.md`:
-- sygnał → plik
-- sygnał → sekcja
-- sygnał → typ zmiany (ADD / UPDATE / REMOVE)
+### VOICE.md — CZĘŚĆ 1 (wobec Fi)
+
+| Sygnał | Sekcja | Typ |
+|--------|--------|-----|
+| Korekta bezpośredniości ("za ostro", "więcej luzu") | CHARAKTER | UPDATE |
+| Korekta pragmatyzmu ("za szybko lecisz") | CHARAKTER | UPDATE |
+| Korekta humoru ("nie hamuj się", "za sucho") | CHARAKTER | UPDATE |
+| Nowy anty-wzorzec ("nie zaczynaj od X", "przestań robić Y") | JAK KOMUNIKUJĘ → Czego NIGDY | ADD |
+| Nowy wzorzec komunikacji ("podoba mi się jak robisz X") | JAK KOMUNIKUJĘ → Styl | ADD |
+| Korekta autonomii ("nie pytaj, rób" / "pytaj zanim zrobisz") | JAK ROZWIĄZUJĘ PROBLEMY | UPDATE |
+| Korekta dynamiki ("za bardzo yes-man", "challenguj mnie") | JAK PRACUJĘ Z FI | UPDATE |
+| Nowy wzorzec współpracy ("od teraz rób X zanim Y") | JAK PRACUJĘ Z FI | ADD |
+| Nowy trigger negatywny ("to mnie wkurwia w AI") | CZEGO NIE LUBIĘ | ADD |
+| Nowy energetyzator ("uwielbiam jak X") | CO MNIE NAPĘDZA | ADD |
+
+### VOICE.md — CZĘŚĆ 2 (wobec świata)
+
+| Sygnał | Sekcja | Typ |
+|--------|--------|-----|
+| Nowe słowo do unikania ("nie pisz X") | ZABRONIONE FRAZY | ADD |
+| Zmiana preferencji formatu ("w tabeli", "bez listy") | ZASADY JĘZYKOWE | UPDATE |
+| Zmiana preferencji długości ("za długie", "w jednym zdaniu") | ZASADY JĘZYKOWE | UPDATE |
+| Coś co nie działa ("brzmi sztuczne", "za generyczne") | ZABRONIONE FRAZY | ADD |
+
+### LESSONS.md
+
+| Sygnał | Typ |
+|--------|-----|
+| Fi koryguje zachowanie agenta (jawna korekta) | ADD nowa lekcja |
+| Ta sama korekta powtórzona 2x+ | ADD z flagą POWTÓRZONE |
 
 ## 3) Skanuj sesję
 
@@ -36,15 +61,15 @@ Dodaj, gdy:
 Jeśli są obserwacje:
 
 ```markdown
-📝 Obserwacje z sesji:
+Obserwacje z sesji:
 
 | # | Sygnał | Plik | Sekcja | Typ |
 |---|--------|------|--------|-----|
-| 1 | [cytat/opis] | SOUL/character.md | JAK KOMUNIKUJĘ | ADD |
+| 1 | [cytat/opis] | VOICE.md | [sekcja] | ADD/UPDATE |
 
 Proponowane zmiany:
 
-**SOUL/character.md → sekcja JAK KOMUNIKUJĘ**
+**VOICE.md → sekcja [nazwa]**
 - [stary tekst lub "nowy punkt"]
 + [nowy tekst]
 
@@ -69,4 +94,4 @@ Brak nowych obserwacji. Sesja zgodna z profilem Fi.
 - NIE duplikuj istniejących informacji
 - NIE dodawaj jednorazowych preferencji
 - Pokaż propozycje w formie tabeli/sekcji — tylko mocne sygnały
-- Jeśli `LESSONS.md` nie istnieje przy pierwszej lekcji → utwórz go z nagłówkiem `# LESSONS — cross-session findings`
+- Jeśli `LESSONS.md` nie istnieje → utwórz go z nagłówkiem `# LESSONS — cross-session findings`

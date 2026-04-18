@@ -39,7 +39,7 @@
 | Procedura SYNC_STATE, skill routing, polityka commit, token budget | `🅓_SYSTEM/AGENT/CO_PILOT.md` | Konstytucja operacyjna |
 | Wartości projektu, Dekalog, Non-negotiables, misja | `CONSTITUTION.md` | Wartości — nie "jak pracować" |
 | Avatar (imię, rola, kompetencje) | `🅓_SYSTEM/AVATAR/AVATAR.md` | Per-projekt |
-| Charakter / głos agenta (ton, anty-wzorce) | `🅓_SYSTEM/SOUL/character.md` | Rośnie przez Reflect |
+| Głos + charakter agenta (ton, anty-wzorce, styl publiczny) | `🅓_SYSTEM/SOUL/VOICE.md` | Rośnie przez Reflect |
 | Bieżące zadania (NEXT, IN PROGRESS, DONE) | `🅒_NOW/CHECKLIST.md` | Jedyna aktywna checklist |
 | Stan systemu (TOP-10 facts, blockers) | `🅒_NOW/STATE_OF_SYSTEM.md` | Aktualizowany przy sync_state |
 | Trwałe decyzje projektu | `🅒_NOW/DECISIONS.md` | Nie debatuj ponownie |
@@ -67,7 +67,7 @@
 
 - `AGENT/CO_PILOT.md` — konstytucja operacyjna (procedury, router, sync, token budget)
 - `AVATAR/AVATAR.md` — tożsamość agenta w projekcie (imię, rola, kompetencje)
-- `SOUL/character.md` — charakter, ton, anty-wzorce, styl współpracy (rośnie przez Reflect)
+- `SOUL/VOICE.md` — głos + charakter agenta: wobec Fi + wobec świata (rośnie przez Reflect)
 - `SKILL/*.md` — skille dynamiczne (Check_Me, Brain_Storming, Grill_Me, itd.) — ładowane on-demand przez router w `CO_PILOT.md §4`
 
 ---

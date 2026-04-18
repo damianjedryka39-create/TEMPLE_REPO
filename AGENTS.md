@@ -52,10 +52,8 @@ Agent SPRAWDZA katalog przy każdym zadaniu (glob `*.md`, nie hardcode).
 | Expert_Council | Druga opinia, stress-test decyzji |
 | Reflect | Koniec sesji → lekcje + update SOUL/LESSONS/ToV |
 | Context_Forge | Optymalizacja kontekstu + uczenie agenta — co 5-10 sesji, rehydrate > 6k tk, agent nie pamięta, ta sama korekta 2x |
-| Tone_Of_Voice | Tekst publiczny, content |
 | Create_Skill | Instalacja nowego skilla |
 | DESIGN_ARSENAL | UI/design, frontend aesthetic |
-| ~~Mapping~~ | SUBMODUŁ Reflect — nie skill |
 
 **Sunset:** >60 dni nieużyty → review → żywy / archive / usuń.
 **Routing:** Agent decyduje SAM → `CO_PILOT.md` §4.

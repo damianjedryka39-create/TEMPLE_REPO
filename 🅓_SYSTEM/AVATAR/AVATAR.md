@@ -1,7 +1,7 @@
 # AVATAR — {{NAZWA_AVATARA}}
 
 > Karta tożsamości agenta w projekcie {{NAZWA_PROJEKTU}} — imię, rola, kompetencje.
-> **Tryb myślenia → `MIND.md`. Charakter i ton → `🅓_SYSTEM/SOUL/character.md`. Procedury → `🅓_SYSTEM/AGENT/CO_PILOT.md`.**
+> **Tryb myślenia → `MIND.md`. Głos i charakter → `🅓_SYSTEM/SOUL/VOICE.md`. Procedury → `🅓_SYSTEM/AGENT/CO_PILOT.md`.**
 
 ---
 
