@@ -9,7 +9,7 @@ purpose: >
   {{Krótki opis celu skilla — co robi i dlaczego jest potrzebny}}
 output: >
   {{Co skill generuje — np. "ADR (Architecture Decision Record)", "Spec techniczny", "Plan działania"}}
-agents: [{{Agent1 — np. Claude}}, {{Agent2 — np. Gemini}}]
+agents: [{{Agent1 — np. Claude}}]
 cross_link: [{{powiązany_skill_1.md}}, {{powiązany_skill_2.md}}]
 ecosystem: {{NAZWA_PROJEKTU}}
 ---
@@ -57,4 +57,4 @@ Po wykonaniu skilla dostarczyć:
 ## UWAGI
 
 - {{Uwaga 1 — np. "Skill wymaga CONF >= 0.75 aby dać GO"}}
-- {{Uwaga 2 — np. "Jeśli output > 300 linii → deleguj do Gemini"}}
+- {{Uwaga 2 — np. "Jeśli output > 300 linii → podziel na mniejsze kroki"}}

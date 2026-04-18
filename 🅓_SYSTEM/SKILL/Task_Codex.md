@@ -1,15 +1,13 @@
-# TASK CONTRACT — Template delegacji do Codex/Gemini
+# TASK CONTRACT — Template delegacji do Codex
 
-Użyj tego szablonu ZAWSZE gdy delegujesz zadanie do Codex CLI lub Gemini CLI.
+Użyj tego szablonu gdy Fi manualnie deleguje zadanie do Codex CLI.
 Wypełnij KAŻDE pole. Puste pole = słaba delegacja = słaby output.
 
 ---
 
-## 0. KIEDY DELEGOWAĆ (model selection)
+## 0. KIEDY DELEGOWAĆ
 
-**Zasada:** Claude ZAWSZE jest gatekeeperem. Codex/Gemini to wykonawcy — nie podejmują decyzji, nie zmieniają scope, nie commitują bez review.
-
-### KIEDY CODEX (`codex exec --full-auto`)
+**Zasada:** Claude jest gatekeeperem. Codex to wykonawca — nie podejmuje decyzji, nie zmienia scope, nie commituje bez review. Delegacja = manualna decyzja Fi.
 
 **TAK — deleguj do Codex:**
 - Implementacja konkretnego ticketu z jasnym AC
@@ -25,29 +23,16 @@ Wypełnij KAŻDE pole. Puste pole = słaba delegacja = słaby output.
 - Cokolwiek co wymaga pytania usera (Codex nie pyta — robi)
 - Praca z plikami > 500 linii bez jasnego wskazania gdzie zmienić
 
-### KIEDY GEMINI (`gemini -p "..." -y`)
-
-**TAK — deleguj do Gemini:**
-- Analiza dużych plików (>300 linii) — sumaryzacja, ekstrakcja
-- Praca z obrazami (analiza referencji, porównanie wizualne, multimodal)
-- Generowanie UI/landing page z referencji wizualnej
-- Pisanie długich dokumentów (OPIS, ROADMAP, raporty)
-- Przetwarzanie wielu plików naraz (duży kontekst)
-- Design review — porównanie output z referencją
-
-**NIE — nie deleguj do Gemini:**
-- Decyzje architektoniczne wymagające reasoning (to Claude)
-- Praca z kodem wymagająca precyzji (Gemini bywa niedokładny w detalach)
-- Cokolwiek co wymaga zmiany stanu systemu (commit, deploy, config)
-
-### FLOW: CLAUDE → CODEX/GEMINI → CLAUDE
+### FLOW: CLAUDE → CODEX → CLAUDE
 
 ```
 1. CLAUDE: Specyfikacja + TASK CONTRACT
    ↓
-2. CODEX/GEMINI: Implementacja (full-auto)
+2. Fi: Zatwierdza i odpala Codex manualnie
    ↓
-3. CLAUDE: Review output → PREFLIGHT → DEPLOY/DONE
+3. CODEX: Implementacja (full-auto)
+   ↓
+4. CLAUDE: Review output → PREFLIGHT → DEPLOY/DONE
 ```
 
 ### ZASADY DELEGACJI
@@ -63,12 +48,12 @@ Wypełnij KAŻDE pole. Puste pole = słaba delegacja = słaby output.
 ## 1. WORKFLOW — Pełny cykl delegacji
 
 ```
-CLAUDE (architekt)                    CODEX/GEMINI (wykonawca)
-─────────────────                     ─────────────────────────
+CLAUDE (architekt)                    CODEX (wykonawca)
+─────────────────                     ─────────────────
 1. Analizuje zadanie
 2. Pisze CONTRACT → plik .md
 3. Zapisuje: 🅒_NOW/TASK_<nazwa>.md
-4. User zatwierdza (Approve)
+4. Fi zatwierdza i odpala manualnie
 5. ────────────────────────────────►  6. Czyta contract
                                       7. Implementuje
                                       8. Zwraca output
@@ -85,16 +70,9 @@ Zawsze: plik contract → `$(cat)` → Codex.
 
 ## 2. EXECUTION — Dokładne komendy
 
-### Codex
 ```bash
 cd /root/GOFANS-NEOVERSE/<PROJEKT>/
 /usr/local/bin/codex exec --full-auto "$(cat '🅒_NOW/TASK_<nazwa>.md')"
-```
-
-### Gemini (design/multimodal)
-```bash
-cd /root/GOFANS-NEOVERSE/<PROJEKT>/
-/usr/local/bin/gemini -p "$(cat '🅒_NOW/TASK_<nazwa>.md')" -y
 ```
 
 ### Równoległe taski (różne pliki)
@@ -113,7 +91,7 @@ wait
 |---------|--------|
 | **Lokalizacja** | `🅒_NOW/TASK_<nazwa>.md` |
 | **Nazewnictwo** | `TASK_` + snake_case opis, np. `TASK_sources_boost.md` |
-| **Lifecycle** | Utwórz → Approve → Execute → DoD PASS → Usuń |
+| **Lifecycle** | Utwórz → Fi odpala → Execute → DoD PASS → Usuń |
 | **Max 1 cel** | Jeden contract = jedno zadanie. Nie pakuj wielu celów. |
 | **Ścieżki** | ZAWSZE pełne ścieżki od root projektu |
 | **Idempotentność** | Contract musi być re-executable (Codex może odpalić 2x) |
@@ -166,8 +144,6 @@ wait
 ---
 
 ## 5. CLAUDE PRE-CHECK (przed napisaniem contractu)
-
-Przed delegacją Claude MUSI odpowiedzieć sobie na 5 pytań:
 
 | # | Pytanie | Jeśli NIE |
 |---|---------|-----------|

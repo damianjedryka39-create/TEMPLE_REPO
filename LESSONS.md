@@ -1,7 +1,8 @@
 # LESSONS — cross-session findings
 
-> Lekcje zebrane po korektach Fi. Każda lekcja = reguła zapobiegająca powtórzeniu tego samego błędu.
-> Format: data + sygnał + reguła. Przeglądaj na starcie sesji.
+> Lekcje zebrane po korektach Fi + trwałe odkrycia z wielu sesji.
+> Format lekcji: data + sygnał + reguła. Przeglądaj na starcie sesji.
+> Update podczas SYNC_STATE jeśli sesja przyniosła lekcję lub long-term insight.
 
 ---
 
@@ -21,3 +22,15 @@
 ## L4 — Reflect PRZED sync_state (2026-04-18)
 **Sygnał:** Fi skorygował: "zrobiłeś sync state ale nie zrobiłeś reflectu"
 **Reguła:** SYNC_STATE zaczyna się od Reflect (CO_PILOT §2 krok 0). Nie pomijaj nawet gdy sesja wydaje się "czysto techniczna". Reflect = obowiązkowy gate.
+
+## L5 — Nie usuwaj narzędzi, adaptuj (2026-04-18)
+**Sygnał:** Fi skorygował: "niepotrzebnie usunęłaś ten Skill" po tym jak usunąłem Task_Codex_Gemini.md zamiast go zaadaptować.
+**Reguła:** Gdy Fi mówi "nie chcę X w workflow" — to znaczy wyłącz AUTO-trigger, nie kasuj narzędzie. Skill może być potrzebny do manualnego użycia. Rozróżniaj: "wyłącz z automatyki" vs "usuń z systemu". W razie wątpliwości: adaptuj, nie kasuj.
+
+---
+
+## Findings (long-term)
+
+> Trwałe odkrycia, wzorce i "aha moments" — destylat, nie dziennik.
+
+*(pusty — pierwszy wpis pojawi się gdy pojawi się pierwszy long-term insight)*

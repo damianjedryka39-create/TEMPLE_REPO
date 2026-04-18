@@ -1,6 +1,6 @@
 # STATE OF SYSTEM — TEMPLE_REPO
 
-> Timestamp UTC: 2026-04-19T00:10:00Z
+> Timestamp UTC: 2026-04-18T22:30:00Z
 
 ---
 
@@ -8,15 +8,15 @@
 
 | # | Fakt | Źródło |
 |---|------|--------|
-| 1 | Struktura 🅐-🅖 kompletna, 11 skilli (Mapping+ToV usunięte, wchłonięte) | `AGENTS.md` |
-| 2 | Rehydrate: 6 pozycji (~4-5k tk), PROOFS/ wyłączony z odczytu | `AGENTS.md` |
-| 3 | CO_PILOT: routing 0-9 (tabela) + Context_Forge + Expert_Council overlay | `CO_PILOT.md` §4 |
-| 4 | Merge DIET v2 → v1 + konsolidacja: MIND -32%, CO_PILOT -49%, AGENTS -27%, 6→4 pliki SOUL/SKILL | D7+D8 |
-| 5 | VOICE.md = character.md + Tone_Of_Voice.md (jedno źródło prawdy o głosie) | `SOUL/VOICE.md` |
-| 6 | Reflect.md samowystarczalny (Mapping wchłonięty jako sekcja wewnętrzna) | `SKILL/Reflect.md` |
-| 7 | Context_Forge.md = silnik ewolucji agenta (LEAN + LEARN) | `SKILL/Context_Forge.md` |
-| 8 | LESSONS.md: 4 wpisy (L1 token budget, L2 agent evolution, L3 język nie treść, L4 reflect gate) | `LESSONS.md` |
-| 9 | Partial rehydrate: core/state/decisions | `AGENTS.md` |
+| 1 | Root plików: 5 (było 7). INDEX→AGENTS, MEMORY→LESSONS | Sesja 4 |
+| 2 | Struktura 🅐-🅖 kompletna, 11 skilli (Task_Codex_Gemini→Task_Codex) | `AGENTS.md` |
+| 3 | Rehydrate: 6 pozycji (~4-5k tk), PROOFS/ wyłączony z odczytu | `AGENTS.md` |
+| 4 | CO_PILOT: routing 0-9, krok 4 = "WYKONAJ lub Fi deleguje manualnie" | `CO_PILOT.md` §4 |
+| 5 | Codex/Gemini wyłączone z auto-workflow. Codex dostępny jako manualny skill | Sesja 4 |
+| 6 | AGENTS.md = entry point + SSOT (wchłonął INDEX.md) | Sesja 4 |
+| 7 | LESSONS.md = lekcje + findings (wchłonął MEMORY.md). 5 wpisów (L1-L5) | Sesja 4 |
+| 8 | CLI Tools: tylko Claude. Delegacja = manualna decyzja Fi | `AGENTS.md` |
+| 9 | Merge DIET v2→v1 + konsolidacja z sesji 3: MIND -32%, CO_PILOT -49% | D7+D8 |
 | 10 | Sunset rule aktywna: skill >60 dni nieużyty → review | `AGENTS.md` |
 
 ---
@@ -25,11 +25,11 @@
 
 | # | Proof | Co udowadnia |
 |---|-------|-------------|
-| 1 | `MIND.md` 103 linii vs 152 oryg | -32% tokenów, zero strat jakościowych |
-| 2 | `SOUL/VOICE.md` | Konsolidacja character+ToV w 1 plik, zero duplikacji |
-| 3 | `SKILL/Reflect.md` z wbudowanym mapping | Samowystarczalny skill, Mapping.md zbędny |
-| 4 | `DECISIONS.md` D7+D8 | Merge + konsolidacja udokumentowane |
-| 5 | `LESSONS.md` L4 | Reflect = obowiązkowy gate przed sync_state |
+| 1 | `AGENTS.md` 142 linii (SSOT + mapa + rehydrate w 1 pliku) | INDEX wchłonięty bez straty informacji |
+| 2 | `LESSONS.md` sekcja Findings | MEMORY wchłonięty, jedno źródło pamięci |
+| 3 | `grep INDEX.md\|MEMORY.md` = 0 wyników | Zero osieroconych referencji |
+| 4 | `grep Gemini` = 0 wyników (poza Task_Codex.md) | Gemini kompletnie usunięty |
+| 5 | `LESSONS.md` L5 | Lekcja: adaptuj, nie kasuj |
 
 ---
 
@@ -47,32 +47,33 @@
 
 → Wskazuje na: Propagacja TEMPLE do żywych projektów (GOFANS/MCP/MALING)
 
-**Aktualny cel:** Przetestować zmergowany + skonsolidowany szablon na żywym projekcie
+**Aktualny cel:** Przetestować zmergowany + skonsolidowany + odchudzony szablon na żywym projekcie
 
 ---
 
 ## CONF
 
-**Confidence:** 0.94
+**Confidence:** 0.95
 
 **Co podniesie CONF:**
 - Propagacja do żywego projektu + test → +0.03
-- Context_Forge run na GOFANS z realnymi danymi Fi → +0.03
+- Context_Forge run na GOFANS z realnymi danymi Fi → +0.02
 
 ---
 
 ## LAST SESSION DELTA
 
 ```
-Data: 2026-04-18 (sesja 3 — merge + konsolidacja)
+Data: 2026-04-18 (sesja 4 — konsolidacja plików root + workflow cleanup)
 Co nowego:
-- Merge DIET v2 → v1: MIND -32%, CO_PILOT -49%, AGENTS -27% (razem -39%)
-- Konsolidacja: character.md + Tone_Of_Voice.md → VOICE.md
-- Konsolidacja: Mapping.md wchłonięty do Reflect.md
-- 3 pliki usunięte (character.md, Tone_Of_Voice.md, Mapping.md), 1 nowy (VOICE.md)
-- Referencje zaktualizowane w: CO_PILOT, AGENTS, AVATAR, INDEX, Context_Forge, Silnik, LESSONS
-- DECISIONS: D7 (merge) + D8 (konsolidacja)
-- LESSONS: L4 (reflect gate)
-- TEMPLE_REPO_v2 usunięty (wartość wchłonięta)
+- INDEX.md wchłonięty do AGENTS.md (SSOT tabela, mapa folderów, quick reference)
+- MEMORY.md wchłonięty do LESSONS.md (sekcja "Findings")
+- 2 pliki usunięte (INDEX.md, MEMORY.md): 7→5 root plików
+- Codex/Gemini wyłączone z auto-workflow
+- Task_Codex_Gemini.md → Task_Codex.md (tylko Codex, manualna delegacja przez Fi)
+- Gemini kompletnie usunięty z systemu
+- Referencje zaktualizowane w: CO_PILOT, AGENTS, Silnik, System_Architect, _TEMPLATE_SKILL
+- Silnik.md: naprawiony bug (7→6 plików), usunięty PROOFS/ z listy rehydrate
+- LESSONS: L5 (nie usuwaj narzędzi, adaptuj)
 Agent: Claude Opus (Muaddib)
 ```

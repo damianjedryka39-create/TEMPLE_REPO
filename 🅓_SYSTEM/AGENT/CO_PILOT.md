@@ -1,7 +1,7 @@
 # CO_PILOT — {{NAZWA_PROJEKTU}}
 
 > Konstytucja operacyjna: **JAK agent pracuje**.
-> Tożsamość → `MIND.md`. Avatar → `AVATAR.md`. Delegacja → skill `Task_Codex_Gemini.md`.
+> Tożsamość → `MIND.md`. Avatar → `AVATAR.md`.
 
 ## 1. TRYBY PRACY
 
@@ -20,7 +20,7 @@
 1. `🅒_NOW/STATE_OF_SYSTEM.md` → timestamp UTC, TOP-10 FACTS, TOP-5 PROOFS, TOP-3 BLOCKERS, LAST SESSION DELTA
 2. `🅒_NOW/DECISIONS.md` → jeśli trwałe decyzje
 3. `🅔_STRATEGIA/PROOFS/` → jeśli duży proof/flow/review/deploy/eksperyment
-4. MEMORY.md → jeśli nowe long-term findings
+4. LESSONS.md § Findings → jeśli nowe long-term findings
 5. Overflow → `🅔_STRATEGIA/PROOFS/<AREA>_<YYYYMMDD>.md`
 6. `git commit -m "SYNC_STATE_{{ALIAS_UPPER}} <UTC>"`
 7. `git push` — bez pusha = brak backupu
@@ -46,7 +46,7 @@ Agent decyduje SAM. Nie pyta usera. Sprawdzaj SEKWENCYJNIE — pierwszy match = 
 | 1 | Nie wiem CO user chce | → CHECK_ME (wywiad) | wróć do routera |
 | 2 | Wiele opcji, kreatywna eksploracja | → BRAIN_STORMING | wróć do routera |
 | 3 | Architektura, decyzja techniczna | → SYSTEM_ARCHITECT (3 opcje→verdict) | wróć do routera |
-| 4 | Jasne AC, blueprint, "zbuduj" | → TASK_CODEX_GEMINI | — |
+| 4 | Jasne AC, blueprint, "zbuduj" | → WYKONAJ (lub Fi deleguje manualnie) | — |
 | 5 | CONF < 0.85, nieodwracalne, >50 linii | → GRILL_ME (stress-test) | — |
 | 6 | Output gotowy do deploy/review | → PREFLIGHT (gate) | — |
 | 7 | Prosty task, jasny cel | → WYKONAJ BEZ SKILLA | — |
@@ -57,7 +57,7 @@ Agent decyduje SAM. Nie pyta usera. Sprawdzaj SEKWENCYJNIE — pierwszy match = 
 
 **Zasady:**
 - Po skilla → wróć do routera (może odblokować następny)
-- Po TASK_CODEX_GEMINI, jeśli output wymaga walidacji → wróć do routera (trafi w krok 6 PREFLIGHT)
+- Po implementacji, jeśli output wymaga walidacji → wróć do routera (trafi w krok 6 PREFLIGHT)
 - 1 skill naraz, 1 output, potem decyzja
 - Prosty task = zero skilli
 - Grill_Me (plan) BEFORE Preflight (output). Oba → Grill_Me FIRST
@@ -70,7 +70,7 @@ Agent decyduje SAM. Nie pyta usera. Sprawdzaj SEKWENCYJNIE — pierwszy match = 
 | Ogólnikowo, brak AC | Check_Me |
 | Wiele wariantów | Brain_Storming |
 | Nowy moduł, API, refaktor | System_Architect |
-| Jasny spec, "zbuduj" | Task_Codex_Gemini |
+| Jasny spec, "zbuduj" | Wykonaj / Fi deleguje |
 | Duża decyzja, CONF < 0.85 | Grill_Me |
 | Przed deploy | Preflight |
 | Korekta od usera | Reflect |
@@ -78,7 +78,7 @@ Agent decyduje SAM. Nie pyta usera. Sprawdzaj SEKWENCYJNIE — pierwszy match = 
 | Druga opinia | Expert_Council |
 | Agent się nie uczy / token bloat | Context_Forge |
 
-**Pipeline (rzadko):** CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → TASK × N → PREFLIGHT → DEPLOY → REFLECT → SYNC → CONTEXT_FORGE (co 5-10 sesji)
+**Pipeline (rzadko):** CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → IMPLEMENTACJA × N → PREFLIGHT → DEPLOY → REFLECT → SYNC → CONTEXT_FORGE (co 5-10 sesji)
 
 ## 5. STATE FORMAT
 

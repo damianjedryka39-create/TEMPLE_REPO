@@ -1,5 +1,5 @@
 🔄 rehydrate <alias> — Agent się budzi
-Agent wczytuje 7 plików w tej kolejności:
+Agent wczytuje 6 plików w tej kolejności:
 
 
 1. MIND.md          → "Kim jestem, jak myślę" (CORE — zawsze pierwszy)
@@ -8,7 +8,6 @@ Agent wczytuje 7 plików w tej kolejności:
 4. STATE.md         → "Gdzie jesteśmy — fakty, blockers, confidence"
 5. CHECKLIST.md     → "Co robimy — zadania, priorytet, postęp"
 6. DECISIONS.md     → "Co już zdecydowaliśmy (nie debatuj ponownie)"
-7. PROOFS/          → "Dowody z poprzednich sesji"
 Po wczytaniu agent odpowiada:
 
 
@@ -39,7 +38,7 @@ Nowe zadanie od Fi
   │   └─ 3 opcje + trade-off + verdict (skill System_Architect)
   │
   ├─ Mam jasny plan, trzeba zbudować?
-  │   └─ Deleguj do Codex/Gemini (skill Task_Codex_Gemini)
+  │   └─ Wykonaj (lub Fi deleguje manualnie do zewnętrznego agenta)
   │
   ├─ Ryzykowne / CONF < 0.85?
   │   └─ Stress-test planu (skill Grill_Me)
@@ -68,7 +67,7 @@ Postęp zapisuje w CHECKLIST.md — max 1 zadanie IN PROGRESS naraz.
 1. STATE.md        → Aktualizuj fakty, blockers, confidence, timestamp
 2. DECISIONS.md    → Dopisz trwałe decyzje z tej sesji (jeśli były)
 3. PROOFS/         → Zapisz duże dowody/eksperymenty (jeśli były)
-4. MEMORY.md       → Aktualizuj long-term findings (jeśli nowe)
+4. LESSONS.md § Findings → Aktualizuj long-term findings (jeśli nowe)
 5. git commit      → "SYNC_STATE_<ALIAS> <timestamp UTC>"
 6. git push        → Backup na remote (sync bez pusha = brak backupu)
 Efekt: Następny agent (nawet inny model) robi rehydrate i wie dokładnie gdzie poprzednia sesja się skończyła.
@@ -92,7 +91,7 @@ Policzmy pełny kontekst jaki agent dostaje zanim w ogóle zacznie myśleć o Tw
 Warstwa	~Tokenów
 System prompt Claude Code	~3 000
 CLAUDE.md (global)	~800
-MEMORY.md + pliki pamięci	~2 500
+LESSONS.md + pliki pamięci	~2 500
 REHYDRATE TEMPLE	~7 700
 Σ overhead przed zadaniem	~14 000
 To 14 tysiąc tokenów instrukcji zanim agent przeczyta pierwsze słowo Twojego zadania.

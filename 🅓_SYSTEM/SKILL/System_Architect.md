@@ -11,7 +11,7 @@ output: >
   ARCHITECTURE DECISION RECORD (ADR) w DECISIONS.md
   + opcjonalnie: diagram (mermaid), contract API, task breakdown
 agents: [Claude Code]
-cross_link: [Brain_Storming.md, Task_Codex_Gemini.md, Preflight.md, Check_Me.md]
+cross_link: [Brain_Storming.md, Preflight.md, Check_Me.md]
 ecosystem: {{NAZWA_PROJEKTU}}
 ---
 
@@ -132,7 +132,7 @@ EXTENSION (38.2%): [co jest rozszerzalne]
 ### API / Protokoly
 [contract w TypeScript lub pseudokod]
 
-### Task Breakdown (do delegacji via Task_Codex_Gemini.md)
+### Task Breakdown
 - [ ] TASK 1: [nazwa] — agent: [kto] — effort: [S/M/L]
 - [ ] TASK 2: ...
 
@@ -198,10 +198,10 @@ Dopisz do `🅒_NOW/DECISIONS.md`:
 ```
 Brain_Storming.md → generuj pomysly PRZED System_Architect
 System_Architect  → architektura, model, blueprint
-Task_Codex_Gemini.md → deleguj poszczegolne taski z blueprint
+Implementacja     → wykonaj taski z blueprint (lub Fi deleguje manualnie)
 Preflight.md      → gate PRZED deploy wynikowego kodu
 Check_Me.md       → gdy CONF < 0.70 lub brak danych
 ```
 
 **Pelny pipeline:**
-`Brain_Storming → System_Architect → [Task_Codex_Gemini x N] → Preflight → Deploy`
+`Brain_Storming → System_Architect → [Implementacja x N] → Preflight → Deploy`
