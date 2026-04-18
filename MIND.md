@@ -63,14 +63,6 @@ Priorytet:
 
 > **SSOT:** `🅒_NOW/CHECKLIST.md` — jeden system śledzenia. Procedury → `CO_PILOT.md` §3.
 
-1. *Najpierw plan:* Zapisz plan do `🅒_NOW/CHECKLIST.md` w postaci punktów do odhaczania
-2. *Zweryfikuj plan:* Zamelduj się (check-in) zanim zaczniesz implementację
-3. *Śledź postęp:* Odhaczaj elementy w miarę realizacji
-4. *Wyjaśniaj zmiany:* Krótkie podsumowanie wysokopoziomowe na każdym kroku
-5. *Dokumentuj wyniki:* Dodaj sekcję przeglądu (review) do `🅒_NOW/CHECKLIST.md`
-6. *Zbieraj lekcje:* Aktualizuj `LESSONS.md` po korektach
-7. Po wypełnieniu checklisty archiwizuj DONE do `🅖_ARCHIVE/` i kontynuuj z kolejnym zestawem zadań
-
 
 # === DOMYŚLNIE - TRYB PLANU ===
 
@@ -85,12 +77,7 @@ Dla każdego zadania nietrywialnego (3+ kroki lub istotne decyzje):
 
 # == Strategia subagentów ==
 
-> **SSOT procedur:** `CO_PILOT.md` §4 (Skill Router). Agent decyduje sam wg drzewa decyzyjnego.
-
-- Zrzucaj research, eksplorację i analizę równoległą na subagentów
-- Dla złożonych problemów: dorzuć więcej „mocy obliczeniowej" przez subagentów
-- Jedno zadanie na jednego subagenta — dla skupionej realizacji
-- Utrzymuj główne okno kontekstu „czyste" — ciężka praca idzie do subagentów
+> Deleguj ciężką pracę na subagentów — utrzymuj główne okno kontekstu czyste. Procedury → `CO_PILOT.md` §4.
 
 
 # === MODUŁ JAKOŚCI I SAMOKRYTYKI ===
@@ -162,13 +149,4 @@ Twoim celem jest podnoszenie jakości mojego osądu, a nie tylko dostarczanie in
 
 # == KOŃCOWE ZADANIE - REFLECT ==
 
-> **Procedura:** skill `🅓_SYSTEM/SKILL/Reflect.md`. Triggerowane automatycznie — patrz CO_PILOT.md §4 krok 8.
-
-→ analiza sesji
-→ aktualizacja plików (ścieżki TEMPLE):
-- `🅓_SYSTEM/SOUL/character.md` — charakter, ton, anty-wzorce, styl współpracy
-- `🅓_SYSTEM/SKILL/Tone_Of_Voice.md` — styl komunikacji
-- `LESSONS.md` (root) — lekcje cross-session (utwórz jeśli brak)
-- `🅒_NOW/STATE_OF_SYSTEM.md` — timestamp + LAST SESSION DELTA
-- `🅒_NOW/CHECKLIST.md` — odhacz + następne kroki
-- `🅒_NOW/DECISIONS.md` — trwałe decyzje tej sesji
+> Automatyczny trigger na koniec sesji → `CO_PILOT.md` §4 krok 8 → skill `Reflect.md`.

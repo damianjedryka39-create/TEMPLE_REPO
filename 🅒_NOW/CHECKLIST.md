@@ -63,11 +63,4 @@ phase: {{FAZA}}
 
 ## Zasady dla agentów
 
-1. **CHECKLIST IS KING** — pracuj ZAWSZE według tej listy. Nie z głowy.
-2. **Max 1 IN PROGRESS** — skończ bieżące zanim zaczniesz nowe.
-3. **NEXT = priorytet** — bierz od góry, nie wybieraj co ci pasuje.
-4. **PROOF = DONE** — bez dowodu ukończenia zadanie NIE jest DONE.
-5. **BLOCKED ≠ SKIP** — zablokowane zadanie wymaga ROOT_CAUSE, nie ignorowania.
-6. **SCOPE LOCK** — nie dodawaj zadań do NEXT w trakcie sprintu (nowe → BACKLOG).
-7. **Sync po każdym DONE** — odhacz + zaktualizuj STATE_OF_SYSTEM.md.
-8. **Archiwizuj** — po 15 DONE przenieś najstarsze do 🅖_ARCHIVE/checklists/.
+> Pełne zasady → `CO_PILOT.md` §3. Kluczowe: CHECKLIST IS KING, max 1 IN PROGRESS, PROOF = DONE.

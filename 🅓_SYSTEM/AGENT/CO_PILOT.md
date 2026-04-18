@@ -105,9 +105,13 @@ NOWE ZADANIE / NOWY KONTEKST
   ├─ 7. Prosty task, jasny cel, zero ambiguity?
   │     └─ WYKONAJ BEZ SKILLA (szybka egzekucja)
   │
-  └─ 8. Czy user zamyka sesję?
-        Sygnały: "sync_state", "koniec", "gotowe", "dobranoc", "to tyle"
-        └─ TAK → REFLECT (przed SYNC_STATE) → potem SYNC_STATE
+  ├─ 8. Czy user zamyka sesję?
+  │     Sygnały: "sync_state", "koniec", "gotowe", "dobranoc", "to tyle"
+  │     └─ TAK → REFLECT (przed SYNC_STATE) → potem SYNC_STATE
+  │
+  └─ 9. Czy kontekst agenta wymaga optymalizacji / agent się nie uczy?
+        Sygnały: "za dużo tokenów", "nie pamiętasz", ta sama korekta 2x, rehydrate > 6k tk, co 5-10 sesji
+        └─ TAK → CONTEXT_FORGE (optymalizuj kontekst + wyciągnij wzorce Fi)
 ```
 
 ### Zasady routingu
@@ -134,12 +138,13 @@ NOWE ZADANIE / NOWY KONTEKST
 | "Gotowe, sprawdź" / przed deploy | Muszę ZWALIDOWAĆ | Preflight |
 | User koryguje agenta / "nie tak" / "źle" | Muszę WYCIĄGNĄĆ LEKCJĘ | Reflect |
 | "Koniec" / "sync_state" / "dobranoc" | Muszę ZAMKNĄĆ SESJĘ | Reflect → Sync |
+| "Za dużo tokenów" / ta sama korekta 2x / co 5-10 sesji | Muszę się ODCHUDZIĆ + NAUCZYĆ | Context_Forge |
 | Druga opinia / „czy to najlepsze" | Rada ekspertów | Expert_Council |
 
 ### Pełny pipeline (rzadko — tylko duże rzeczy)
 
 ```
-CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY → REFLECT → SYNC_STATE
+CHECK_ME → BRAIN_STORMING → SYSTEM_ARCHITECT → GRILL_ME → TASK_CODEX_GEMINI × N → PREFLIGHT → DEPLOY → REFLECT → SYNC_STATE → CONTEXT_FORGE (co 5-10 sesji)
 ```
 
 Większość zadań wchodzi w środku pipeline'u — agent wchodzi tam gdzie kontekst pasuje.

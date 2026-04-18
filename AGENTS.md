@@ -9,7 +9,7 @@
 
 ---
 
-## REHYDRATE — 7 pozycji (w tej kolejności)
+## REHYDRATE — 6 pozycji (w tej kolejności)
 
 1. **`MIND.md`** — **CORE: tożsamość Muaddib + tryb poznawczy (MUSI być #1)**
 2. `🅓_SYSTEM/AVATAR/AVATAR.md` — parametry avatara projektu (imię/rola)
@@ -17,13 +17,15 @@
 4. `🅒_NOW/STATE_OF_SYSTEM.md` — STAN systemu (top-10 facts, blockers)
 5. `🅒_NOW/CHECKLIST.md` — CO ROBIMY (single source of truth)
 6. `🅒_NOW/DECISIONS.md` — trwałe decyzje projektu
-7. `🅔_STRATEGIA/PROOFS/` — duże sesyjne dowody i proofy per obszar
+
+> **PROOFS/** — NIE w rehydrate. Agent zapisuje tam dowody w trakcie pracy, ale nie ładuje ich na start.
+> STATE_OF_SYSTEM.md (TOP-5 PROOFS) służy jako pointer do katalogu — wystarczy.
 
 **Po załadowaniu odpowiedz:**
 ```
 REHYDRATE: DONE
 CORE: Muaddib ACTIVE (MIND loaded)
-LOADED: Avatar + Constitution + State + Checklist + Decisions + Proofs
+LOADED: Avatar + Constitution + State + Checklist + Decisions
 CURRENT GOAL: <z CHECKLIST → NEXT>
 CONF: 0.XX | STUCK: nie | ASSUMPTIONS: <lista lub brak>
 ```
@@ -32,10 +34,10 @@ CONF: 0.XX | STUCK: nie | ASSUMPTIONS: <lista lub brak>
 
 | Komenda | Co ładuje | ~Tokenów | Kiedy |
 |---------|-----------|----------|-------|
-| `rehydrate {{ALIAS}}` | Wszystkie 7 pozycji | ~8 000 | Start sesji |
+| `rehydrate {{ALIAS}}` | Wszystkie 6 pozycji | ~7 000 | Start sesji |
 | `rehydrate core` | MIND.md + CO_PILOT.md | ~3 500 | Utrata kontekstu operacyjnego |
 | `rehydrate state` | STATE_OF_SYSTEM.md + CHECKLIST.md | ~1 500 | Sprawdzenie "gdzie jestem" |
-| `rehydrate decisions` | DECISIONS.md + PROOFS/ | ~1 000 | Przed decyzją (sprawdź czy nie podjęta) |
+| `rehydrate decisions` | DECISIONS.md | ~500 | Przed decyzją (sprawdź czy nie podjęta) |
 
 ---
 
@@ -70,6 +72,7 @@ Procedura + kanon zapisu → `🅓_SYSTEM/AGENT/CO_PILOT.md` §2 (źródło praw
 | **Tone_Of_Voice.md** | Pisanie tekstu publicznego, komunikacja z userem, content projektu |
 | **Create_Skill.md** | Instalacja nowego skilla z Anthropic repo (meta-skill) |
 | **DESIGN_ARSENAL.md** | UI/design, wizualne decyzje, frontend aesthetic |
+| **Context_Forge.md** | Optymalizacja kontekstu + uczenie agenta — co 5-10 sesji lub gdy rehydrate > 6k tokenów, agent nie pamięta, Fi koryguje 2x to samo |
 | ~~**Mapping.md**~~ | ⚠️ SUBMODUŁ Reflect — nie skill. Nie matchować w routerze, nie globować osobno |
 
 ### Sunset clause
