@@ -15,7 +15,7 @@
 | 5 | Context_Forge.md = silnik ewolucji agenta (LEAN + LEARN) | `SKILL/Context_Forge.md` |
 | 6 | Partial rehydrate: core/state/decisions | `AGENTS.md` |
 | 7 | INIT.md ma blocking gate na pustą CONSTITUTION (krok 4.5) | `INIT.md` |
-| 8 | LESSONS.md: 3 wpisy (L1 token budget, L2 agent evolution, L3 język nie treść) | `LESSONS.md` |
+| 8 | LESSONS.md: 4 wpisy (L1 token budget, L2 agent evolution, L3 język nie treść, L4 reflect gate) | `LESSONS.md` |
 | 9 | Separacja MIND=CO / CO_PILOT=JAK potwierdzona po review | refactor sesja 3 |
 | 10 | Sunset rule aktywna: skill >60 dni nieużyty → review | `AGENTS.md` |
 

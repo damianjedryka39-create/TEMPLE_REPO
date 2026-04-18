@@ -17,3 +17,7 @@
 ## L3 — Optymalizuj JĘZYK, nie TREŚĆ (2026-04-18)
 **Sygnał:** DIET v2 eksperyment — agresywne skracanie plików dało -29% tokenów bez utraty reguł.
 **Reguła:** Przy kompresji kontekstu: skracaj zdania, usuwaj redundancję, pisz ostrzejszym językiem. NIE usuwaj reguł które działają. Testuj zawsze: "czy agent z odchudzonym plikiem zachowa identyczne zachowanie?"
+
+## L4 — Reflect PRZED sync_state (2026-04-18)
+**Sygnał:** Fi skorygował: "zrobiłeś sync state ale nie zrobiłeś reflectu"
+**Reguła:** SYNC_STATE zaczyna się od Reflect (CO_PILOT §2 krok 0). Nie pomijaj nawet gdy sesja wydaje się "czysto techniczna". Reflect = obowiązkowy gate.
