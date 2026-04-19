@@ -1,6 +1,6 @@
 # STATE OF SYSTEM — TEMPLE_REPO
 
-> Timestamp UTC: 2026-04-18T23:15:00Z
+> Timestamp UTC: 2026-04-19T00:30:00Z
 
 ---
 
@@ -17,7 +17,7 @@
 | 7 | LESSONS.md = lekcje L1-L5 + finding F1 (workflow = żywy system) | Sesja 5 |
 | 8 | CLI Tools: tylko Claude. Delegacja = manualna decyzja Fi | `AGENTS.md` |
 | 9 | Muaddib.md = CORE (tożsamość + tryb + avatar + specjalizacja) — 1 plik zamiast 2 | D11 |
-| 10 | Workflow_Edit.md = skill do bezpiecznej edycji struktury (5 kroków + Grill_Me) | Sesja 5 |
+| 10 | TEMPLE_REPO_v2 utworzony jako osobne repo do ewolucji szablonu | Sesja 6 |
 
 ---
 
@@ -45,9 +45,9 @@
 
 ## NEXT
 
-→ Wskazuje na: Propagacja TEMPLE do żywych projektów (GOFANS/MCP/MALING)
+→ Wskazuje na: Ewolucja TEMPLE_REPO_v2
 
-**Aktualny cel:** Przetestować szablon (z Muaddib.md + Workflow_Edit) na żywym projekcie
+**Aktualny cel:** Ewolucja v2 — duża operacja zaplanowana na rano 2026-04-19
 
 ---
 
@@ -64,16 +64,12 @@
 ## LAST SESSION DELTA
 
 ```
-Data: 2026-04-18 (sesja 5 — merge MIND+AVATAR→Muaddib + skill Workflow_Edit)
+Data: 2026-04-19 (sesja 6 — fork v2 + cel dwukierunkowy)
 Co nowego:
-- MIND.md + AVATAR.md → Muaddib.md (🅓_SYSTEM/AVATAR/) — 2 pliki→1, root 5→4
-- AVATAR.md usunięty (dead weight: kompetencje, motto = zero wpływu na agenta)
-- Sekcja SPECJALIZACJA dodana do Muaddib.md (jedyna wartość z AVATAR)
-- Rehydrate: 6→5 pozycji (~3.5-4.5k tk)
-- Referencje zaktualizowane w 10 plikach: AGENTS, CO_PILOT, VOICE, Silnik, Context_Forge, Reflect, INIT, DECISIONS
-- Refactor grep: MIND.md=0, AVATAR.md=0 — zero osieroconych referencji
-- Nowy skill: Workflow_Edit.md (5 kroków + Grill_Me wbudowany)
-- D11: decyzja merge MIND+AVATAR→Muaddib
-- LESSONS F1: workflow = żywy system
+- TEMPLE_REPO_v2 utworzony jako osobne repo (git@github.com:damianjedryka39-create/TEMPLE_REPO_v2.git)
+- Czysty git init, bez historii v1, branch main, push OK
+- TL;DR cel zaktualizowany w obu repo (v1 + v2): "agent uczy się Fi → Fi rozumie zależności i zastosowania AI w rzeczywistości"
+- D12: cel dwukierunkowy zamiast jednokierunkowego
+- Ewolucja v2 zaplanowana jako duża operacja na rano
 Agent: Claude Opus (Muaddib)
 ```

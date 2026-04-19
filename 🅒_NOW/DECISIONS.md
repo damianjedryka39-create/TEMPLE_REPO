@@ -25,6 +25,7 @@ rule: "Nie debatuj ponownie — jeśli temat był tu zdecydowany, agent czyta de
 | D9 | 2026-04-18 | INDEX→AGENTS, MEMORY→LESSONS (7→5 root plików) | osobne vs merge | INDEX duplikował CLI/deploy/rehydrate z AGENTS. MEMORY pusty, LESSONS robi tę samą robotę. Merge = zero split-brain, -2 pliki | 0.95 |
 | D10 | 2026-04-18 | Codex/Gemini wyłączone z auto-workflow. Tylko Claude + manualna delegacja | auto vs manual | Fi nie chce auto-delegacji. Claude = jedyny agent. Codex dostępny jako skill do ręcznego użycia przez Fi | 0.95 |
 | D11 | 2026-04-18 | MIND.md + AVATAR.md → Muaddib.md (🅓_SYSTEM/AVATAR/) | osobne vs merge | AVATAR dekoracyjny (kompetencje, motto = zero wpływu na agenta). MIND miał tożsamość, AVATAR duplikował. Merge = 1 plik CORE, rehydrate 6→5, -1 root plik. Specjalizacja per-projekt zachowana jako sekcja | 0.92 |
+| D12 | 2026-04-19 | Cel dwukierunkowy: agent uczy się Fi → Fi rozumie zależności i zastosowania AI w rzeczywistości | jednokierunkowy ("ucz Fi") vs dwukierunkowy | Agent który nie uczy się usera nie potrafi go efektywnie uczyć. Pętla sprzężenia zwrotnego: im lepiej agent zna Fi, tym trafniej dobiera wiedzę. Nie "świat AI" abstrakcyjnie, lecz zależności i zastosowania AI w realnym świecie | 0.95 |
 
 ---
 
